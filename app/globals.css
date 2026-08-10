@@ -1,26 +1,818 @@
 @import "tailwindcss";
 
+/* ==========================================================================
+   Interra Design System — design tokens
+   Fuente: proyecto Claude Design "Interra Design System" (tokens/*.css).
+   Los valores son literales del sistema; no los edites sin actualizar allá.
+   ========================================================================== */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* --- fonts (las variables --font-archivo/--font-barlow las inyecta next/font) --- */
+  --font-display: var(--font-archivo), "Archivo", system-ui, sans-serif;
+  --font-body: var(--font-barlow), "Barlow", system-ui, sans-serif;
+  --font-mono: ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+  /* --- brand core --- */
+  --interra-navy: #002639;
+  --interra-orange: #f18a00;
+  --interra-white: #ffffff;
+  --interra-black: #000000;
+  --interra-ink: #2d2d2d;
+  --interra-mist: #f3f5f8;
+
+  /* --- navy ramp --- */
+  --navy-900: #001824;
+  --navy-800: #002639;
+  --navy-700: #03384f;
+  --navy-600: #0b4c68;
+  --navy-400: #3f7089;
+  --navy-200: #9db3c0;
+  --navy-050: #e6ecf0;
+
+  /* --- orange ramp --- */
+  --orange-700: #a85f00;
+  --orange-600: #c97400;
+  --orange-500: #f18a00;
+  --orange-400: #ff9f26;
+  --orange-200: #ffd6a1;
+  --orange-050: #fff3e3;
+
+  /* --- neutral ramp --- */
+  --neutral-000: #ffffff;
+  --neutral-050: #f3f5f8;
+  --neutral-100: #e7eaef;
+  --neutral-200: #d2d7de;
+  --neutral-400: #8c949e;
+  --neutral-600: #5a6169;
+  --neutral-800: #2d2d2d;
+  --neutral-900: #101314;
+
+  /* --- semantic: text --- */
+  --text-primary: var(--interra-navy);
+  --text-secondary: #5a6169;
+  --text-muted: #8c949e;
+  --text-inverse: #ffffff;
+  --text-accent: var(--interra-orange);
+  --text-on-accent: #ffffff;
+  --text-link: var(--interra-navy);
+  --text-link-hover: var(--interra-orange);
+
+  /* --- semantic: surfaces --- */
+  --surface-page: #ffffff;
+  --surface-subtle: var(--interra-mist);
+  --surface-card: #ffffff;
+  --surface-inverse: var(--interra-navy);
+  --surface-inverse-deep: #000000;
+  --surface-accent: var(--interra-orange);
+  --surface-accent-soft: #fff3e3;
+
+  /* --- semantic: lines --- */
+  --border-subtle: #e7eaef;
+  --border-strong: #d2d7de;
+  --border-inverse: rgb(255 255 255 / 0.18);
+  --border-accent: var(--interra-orange);
+
+  /* --- overlays --- */
+  --overlay-scrim: rgb(0 0 0 / 0.8);
+  --overlay-navy: rgb(0 38 57 / 0.72);
+  --overlay-protect: linear-gradient(
+    180deg,
+    rgb(0 38 57 / 0) 0%,
+    rgb(0 38 57 / 0.55) 55%,
+    rgb(0 38 57 / 0.92) 100%
+  );
+
+  /* --- status --- */
+  --status-available: #1f8a5b;
+  --status-reserved: var(--interra-orange);
+  --status-sold: #8c949e;
+
+  /* --- typography scale --- */
+  --fw-light: 300;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+  --fw-black: 900;
+
+  --fs-display-xl: clamp(40px, 6.2vw, 82px);
+  --fs-display-lg: clamp(34px, 4.4vw, 64px);
+  --fs-display-md: clamp(28px, 3vw, 44px);
+  --fs-heading-lg: 32px;
+  --fs-heading-md: 24px;
+  --fs-heading-sm: 19px;
+  --fs-body-lg: 19px;
+  --fs-body: 17px;
+  --fs-body-sm: 15px;
+  --fs-caption: 13px;
+  --fs-eyebrow: 12px;
+
+  --lh-tight: 1.02;
+  --lh-snug: 1.15;
+  --lh-heading: 1.22;
+  --lh-body: 1.6;
+  --lh-loose: 1.75;
+
+  --ls-display: -0.025em;
+  --ls-heading: -0.012em;
+  --ls-body: 0;
+  --ls-eyebrow: 0.18em;
+  --ls-logotype: 0.14em;
+
+  /* --- spacing / layout --- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+  --space-10: 128px;
+  --section-y: 96px;
+  --section-y-lg: 128px;
+  --container-max: 1240px;
+  --container-narrow: 820px;
+  --gutter: 24px;
+
+  /* --- radius / borders --- */
+  --radius-none: 0px;
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 8px;
+  --radius-pill: 999px;
+  --border-width: 1px;
+  --border-width-strong: 2px;
+
+  /* --- elevation --- */
+  --shadow-none: none;
+  --shadow-sm: 0 1px 2px rgb(0 38 57 / 0.06);
+  --shadow-md: 0 6px 18px rgb(0 38 57 / 0.08);
+  --shadow-lg: 0 18px 42px rgb(0 38 57 / 0.14);
+  --shadow-focus: 0 0 0 3px rgb(241 138 0 / 0.38);
+  --blur-glass: saturate(140%) blur(14px);
+
+  /* --- motion --- */
+  --ease-standard: cubic-bezier(0.2, 0.6, 0.2, 1);
+  --ease-out: cubic-bezier(0, 0.6, 0.3, 1);
+  --dur-fast: 120ms;
+  --dur-base: 220ms;
+  --dur-slow: 420ms;
+  --dur-reveal: 700ms;
 }
 
+/* Puente hacia las utilidades de Tailwind: bg-navy, text-orange, font-display… */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-navy: var(--interra-navy);
+  --color-navy-900: var(--navy-900);
+  --color-navy-800: var(--navy-800);
+  --color-navy-700: var(--navy-700);
+  --color-navy-600: var(--navy-600);
+  --color-navy-400: var(--navy-400);
+  --color-navy-200: var(--navy-200);
+  --color-navy-50: var(--navy-050);
+
+  --color-orange: var(--interra-orange);
+  --color-orange-700: var(--orange-700);
+  --color-orange-600: var(--orange-600);
+  --color-orange-500: var(--orange-500);
+  --color-orange-400: var(--orange-400);
+  --color-orange-200: var(--orange-200);
+  --color-orange-50: var(--orange-050);
+
+  --color-mist: var(--interra-mist);
+  --color-ink: var(--interra-ink);
+  --color-line: var(--border-subtle);
+  --color-line-strong: var(--border-strong);
+  --color-muted: var(--text-muted);
+  --color-secondary: var(--text-secondary);
+
+  /* Nombres distintos a los tokens (--font-display/--font-body) a propósito:
+     usar la misma llave aquí genera una variable autorreferente. */
+  --font-sans: var(--font-body);
+  --font-heading: var(--font-display);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* ==========================================================================
+   Base — tokens/base.css
+   Va en @layer base para que las utilidades de Tailwind puedan sobreescribirlo.
+   ========================================================================== */
+
+@layer base {
+  body {
+    font-family: var(--font-body);
+    color: var(--text-primary);
+    background: var(--surface-page);
+    font-size: var(--fs-body);
+    line-height: var(--lh-body);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    font-family: var(--font-display);
+    font-weight: var(--fw-bold);
+    letter-spacing: var(--ls-heading);
+    line-height: var(--lh-heading);
+  }
+
+  a {
+    color: var(--text-link);
+    text-decoration: none;
+    transition: color var(--dur-fast) var(--ease-standard);
+  }
+
+  a:hover {
+    color: var(--text-link-hover);
+  }
+
+  ::selection {
+    background: var(--interra-orange);
+    color: #fff;
+  }
+
+  :focus-visible {
+    outline: none;
+    box-shadow: var(--shadow-focus);
+    border-radius: var(--radius-sm);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ==========================================================================
+   Componentes del sistema — @layer components, por debajo de las utilidades.
+   ========================================================================== */
+
+@layer components {
+
+/* ==========================================================================
+   Layout primitives
+   ========================================================================== */
+
+.ds-container {
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+/* Ritmo vertical: 96px, 128px en secciones de apertura. */
+.ds-section {
+  padding-block: var(--section-y);
+}
+
+@media (min-width: 900px) {
+  .ds-section {
+    padding-block: 112px;
+  }
+}
+
+/* Placeholder de trama diagonal navy — sustituye fotografía mientras no exista.
+   Documentado en el sistema: no reemplazar por stock genérico sin aprobación. */
+.ds-hatch {
+  background: repeating-linear-gradient(
+    135deg,
+    #002639 0 18px,
+    #00304a 18px 36px
+  );
+}
+
+.ds-hatch--tight {
+  background: repeating-linear-gradient(
+    135deg,
+    #002639 0 14px,
+    #00304a 14px 28px
+  );
+}
+
+.ds-eyebrow {
+  font-family: var(--font-display);
+  font-size: var(--fs-eyebrow);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--ls-eyebrow);
+  text-transform: uppercase;
+}
+
+.ds-rule {
+  display: inline-block;
+  width: 28px;
+  height: 2px;
+  background: var(--interra-orange);
+  flex: 0 0 28px;
+}
+
+/* ==========================================================================
+   Button — components/core/Button.jsx
+   ========================================================================== */
+
+.ds-btn {
+  font-family: var(--font-display);
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border: var(--border-width-strong) solid transparent;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-decoration: none;
+  line-height: 1;
+  transition:
+    background var(--dur-base) var(--ease-standard),
+    color var(--dur-base) var(--ease-standard),
+    border-color var(--dur-base) var(--ease-standard),
+    transform var(--dur-fast) var(--ease-standard);
+}
+
+.ds-btn--sm {
+  font-size: 12px;
+  padding: 9px 16px;
+}
+.ds-btn--md {
+  font-size: 13px;
+  padding: 13px 24px;
+}
+.ds-btn--lg {
+  font-size: 15px;
+  padding: 17px 34px;
+}
+
+.ds-btn--block {
+  width: 100%;
+}
+
+.ds-btn:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.ds-btn:disabled,
+.ds-btn[aria-disabled="true"] {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.ds-btn--primary {
+  background: var(--surface-accent);
+  color: #fff;
+  border-color: var(--surface-accent);
+}
+.ds-btn--primary:hover:not(:disabled) {
+  background: var(--orange-600);
+  border-color: var(--orange-600);
+  color: #fff;
+}
+
+.ds-btn--secondary {
+  background: var(--interra-navy);
+  color: #fff;
+  border-color: var(--interra-navy);
+}
+.ds-btn--secondary:hover:not(:disabled) {
+  background: var(--navy-700);
+  border-color: var(--navy-700);
+  color: #fff;
+}
+
+.ds-btn--outline {
+  background: transparent;
+  color: var(--interra-navy);
+  border-color: var(--interra-navy);
+}
+.ds-btn--outline:hover:not(:disabled) {
+  background: var(--interra-navy);
+  color: #fff;
+}
+
+.ds-btn--ghost {
+  background: transparent;
+  color: var(--interra-navy);
+  border-color: transparent;
+  padding-inline: 0;
+}
+.ds-btn--ghost:hover:not(:disabled) {
+  color: var(--interra-orange);
+}
+
+.ds-btn--inverse {
+  background: #fff;
+  color: var(--interra-navy);
+  border-color: #fff;
+}
+.ds-btn--inverse:hover:not(:disabled) {
+  background: var(--interra-orange);
+  color: #fff;
+  border-color: var(--interra-orange);
+}
+
+.ds-btn--inverse-outline {
+  background: transparent;
+  color: #fff;
+  border-color: rgb(255 255 255 / 0.55);
+}
+.ds-btn--inverse-outline:hover:not(:disabled) {
+  background: #fff;
+  color: var(--interra-navy);
+  border-color: #fff;
+}
+
+/* ==========================================================================
+   IconButton — components/core/IconButton.jsx
+   ========================================================================== */
+
+.ds-iconbtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-md);
+  border: var(--border-width) solid transparent;
+  cursor: pointer;
+  transition: all var(--dur-base) var(--ease-standard);
+}
+
+.ds-iconbtn--outline {
+  background: transparent;
+  color: var(--interra-navy);
+  border-color: var(--border-strong);
+}
+.ds-iconbtn--outline:hover {
+  border-color: var(--interra-navy);
+}
+
+.ds-iconbtn--solid {
+  background: var(--interra-navy);
+  color: #fff;
+  border-color: var(--interra-navy);
+}
+.ds-iconbtn--solid:hover {
+  background: var(--navy-700);
+}
+
+.ds-iconbtn--accent {
+  background: var(--surface-accent);
+  color: #fff;
+  border-color: var(--surface-accent);
+}
+.ds-iconbtn--accent:hover {
+  background: var(--orange-600);
+}
+
+.ds-iconbtn--inverse {
+  background: transparent;
+  color: #fff;
+  border-color: rgb(255 255 255 / 0.4);
+}
+.ds-iconbtn--inverse:hover {
+  background: #fff;
+  color: var(--interra-navy);
+  border-color: #fff;
+}
+
+/* ==========================================================================
+   Tag — components/core/Tag.jsx
+   ========================================================================== */
+
+.ds-tag {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: var(--fw-medium);
+  padding: 8px 16px;
+  border-radius: var(--radius-pill);
+  border: var(--border-width) solid var(--border-strong);
+  background: transparent;
+  color: var(--text-primary);
+  cursor: default;
+  transition: all var(--dur-fast) var(--ease-standard);
+}
+
+button.ds-tag {
+  cursor: pointer;
+}
+button.ds-tag:hover {
+  background: var(--neutral-050);
+}
+
+.ds-tag[data-active="true"] {
+  border-color: var(--interra-navy);
+  background: var(--interra-navy);
+  color: #fff;
+}
+
+/* ==========================================================================
+   Badge — components/core/Badge.jsx
+   ========================================================================== */
+
+.ds-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 6px 10px;
+  border-radius: var(--radius-sm);
+}
+
+.ds-badge__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: currentColor;
+  flex: 0 0 6px;
+}
+
+.ds-badge--available {
+  background: #e4f3eb;
+  color: #146b45;
+}
+.ds-badge--reserved {
+  background: var(--surface-accent-soft);
+  color: var(--orange-700);
+}
+.ds-badge--sold {
+  background: var(--neutral-100);
+  color: var(--neutral-600);
+}
+.ds-badge--accent {
+  background: var(--surface-accent);
+  color: #fff;
+}
+.ds-badge--navy {
+  background: var(--interra-navy);
+  color: #fff;
+}
+.ds-badge--neutral {
+  background: var(--neutral-050);
+  color: var(--text-secondary);
+}
+
+/* ==========================================================================
+   Card — components/core/Card.jsx
+   ========================================================================== */
+
+.ds-card {
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition:
+    box-shadow var(--dur-base) var(--ease-standard),
+    transform var(--dur-base) var(--ease-standard);
+}
+
+.ds-card--default {
+  background: var(--surface-card);
+  border: var(--border-width) solid var(--border-subtle);
+  color: var(--text-primary);
+}
+.ds-card--subtle {
+  background: var(--surface-subtle);
+  border: var(--border-width) solid transparent;
+  color: var(--text-primary);
+}
+.ds-card--inverse {
+  background: var(--interra-navy);
+  border: var(--border-width) solid transparent;
+  color: #fff;
+}
+.ds-card--accent {
+  background: var(--surface-accent);
+  border: var(--border-width) solid transparent;
+  color: #fff;
+}
+
+.ds-card--interactive:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-3px);
+}
+
+/* ==========================================================================
+   Formularios — components/forms/*.jsx
+   ========================================================================== */
+
+.ds-field-label {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+}
+
+.ds-field {
+  width: 100%;
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: var(--text-primary);
+  background: #fff;
+  padding: 13px 14px;
+  border-radius: var(--radius-md);
+  border: var(--border-width) solid var(--border-strong);
+  outline: none;
+  transition:
+    border-color var(--dur-fast) var(--ease-standard),
+    box-shadow var(--dur-fast) var(--ease-standard);
+}
+
+.ds-field::placeholder {
+  color: var(--text-muted);
+}
+
+.ds-field:focus {
+  border-color: var(--interra-orange);
+  box-shadow: var(--shadow-focus);
+}
+
+.ds-field[aria-invalid="true"] {
+  border-color: #b3261e;
+}
+
+textarea.ds-field {
+  resize: vertical;
+}
+
+select.ds-field {
+  appearance: none;
+  /* Caret propio: chevron recto, 1.5px, en línea con el set de iconos. */
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%235A6169' stroke-width='1.5' stroke-linecap='square'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 40px;
+}
+
+.ds-field-hint {
+  display: block;
+  font-size: 13px;
+  margin-top: 6px;
+  color: var(--text-muted);
+}
+
+.ds-field-hint--error {
+  color: #b3261e;
+}
+
+.ds-checkbox {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.ds-checkbox input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.ds-checkbox__box {
+  width: 20px;
+  height: 20px;
+  flex: 0 0 20px;
+  border-radius: var(--radius-sm);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: var(--border-width-strong) solid var(--border-strong);
+  background: #fff;
+  transition: all var(--dur-fast) var(--ease-standard);
+}
+
+.ds-checkbox__box::after {
+  content: "";
+  width: 9px;
+  height: 5px;
+  border-left: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  transform: rotate(-45deg) translate(1px, -1px);
+  opacity: 0;
+}
+
+.ds-checkbox input:checked + .ds-checkbox__box {
+  border-color: var(--interra-orange);
+  background: var(--interra-orange);
+}
+
+.ds-checkbox input:checked + .ds-checkbox__box::after {
+  opacity: 1;
+}
+
+.ds-checkbox input:focus-visible + .ds-checkbox__box {
+  box-shadow: var(--shadow-focus);
+}
+
+/* ==========================================================================
+   PropertyCard — components/marketing/PropertyCard.jsx
+   ========================================================================== */
+
+.ds-property {
+  display: block;
+  background: #fff;
+  border: var(--border-width) solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  color: inherit;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--dur-base) var(--ease-standard);
+}
+
+.ds-property:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
+  color: inherit;
+}
+
+.ds-property__scrim {
+  position: absolute;
+  inset: 0;
+  background: var(--overlay-protect);
+  opacity: 0.7;
+  transition: opacity var(--dur-base) var(--ease-standard);
+}
+
+.ds-property:hover .ds-property__scrim {
+  opacity: 0.9;
+}
+
+/* ==========================================================================
+   Navbar — components/navigation/Navbar.jsx
+   ========================================================================== */
+
+.ds-navbar {
+  position: fixed;
+  inset-inline: 0;
+  top: 0;
+  z-index: 50;
+  transition:
+    background var(--dur-base) var(--ease-standard),
+    border-color var(--dur-base) var(--ease-standard);
+}
+
+/* Sobre el héroe: transparente con blur. Al salir: blanco sólido + hairline. */
+.ds-navbar[data-solid="false"] {
+  background: transparent;
+  border-bottom: var(--border-width) solid var(--border-inverse);
+}
+
+.ds-navbar[data-solid="true"] {
+  background: rgb(255 255 255 / 0.92);
+  backdrop-filter: var(--blur-glass);
+  -webkit-backdrop-filter: var(--blur-glass);
+  border-bottom: var(--border-width) solid var(--border-subtle);
+}
+
+.ds-navlink {
+  font-size: 15px;
+  font-weight: var(--fw-medium);
+  white-space: nowrap;
+}
+
+.ds-navbar[data-solid="false"] .ds-navlink {
+  color: rgb(255 255 255 / 0.88);
+}
+.ds-navbar[data-solid="false"] .ds-navlink:hover {
+  color: var(--interra-orange);
+}
+.ds-navbar[data-solid="true"] .ds-navlink {
+  color: var(--text-primary);
+}
+
+/* ==========================================================================
+   Revelado al hacer scroll — 420–700ms, fade + 16px hacia arriba.
+   ========================================================================== */
+
+.ds-reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity var(--dur-reveal) var(--ease-standard),
+    transform var(--dur-reveal) var(--ease-standard);
+}
+
+.ds-reveal[data-shown="true"] {
+  opacity: 1;
+  transform: none;
+}
+
+} /* fin @layer components */
+
+@media (prefers-reduced-motion: reduce) {
+  .ds-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
 }
