@@ -4,8 +4,6 @@ import { useState, type FormEvent } from "react";
 import { Button } from "@/components/ds/Button";
 import { Checkbox } from "@/components/ds/Checkbox";
 import { Input } from "@/components/ds/Input";
-import { Select } from "@/components/ds/Select";
-import { PROJECT_TYPES } from "@/content/site";
 
 /**
  * Destino de las solicitudes. Mientras no exista, el formulario valida pero
@@ -42,7 +40,7 @@ export function ContactForm() {
       setStatus({
         kind: "error",
         message:
-          "El formulario aún no está conectado. Escríbenos a ventas@grupointerra.mx mientras tanto.",
+          "El formulario aún no está conectado. Escríbenos a contacto@grupointerra.com mientras tanto.",
       });
       return;
     }
@@ -64,7 +62,7 @@ export function ContactForm() {
       setStatus({
         kind: "error",
         message:
-          "No pudimos enviar tu solicitud. Inténtalo de nuevo o escríbenos a ventas@grupointerra.mx.",
+          "No pudimos enviar tu solicitud. Inténtalo de nuevo o escríbenos a contacto@grupointerra.com.",
       });
     }
   }
@@ -89,26 +87,26 @@ export function ContactForm() {
           required
         />
         <Input
-          label="Teléfono"
-          name="telefono"
-          type="tel"
-          autoComplete="tel"
-          placeholder="55 0000 0000"
-          required
+          label="Compañía"
+          name="compania"
+          autoComplete="organization"
+          placeholder="Nombre de la empresa"
         />
         <Input
-          label="Correo"
-          name="correo"
+          label="Email"
+          name="email"
           type="email"
           autoComplete="email"
           placeholder="tu@empresa.com"
           required
         />
-        <Select
-          label="Tipo de proyecto"
-          name="tipo"
-          options={PROJECT_TYPES}
-          defaultValue={PROJECT_TYPES[0]}
+        <Input
+          label="Teléfono"
+          name="telefono"
+          type="tel"
+          autoComplete="tel"
+          placeholder="81 0000 0000"
+          required
         />
 
         <div className="sm:col-span-2">
@@ -132,7 +130,7 @@ export function ContactForm() {
             label="Acepto el aviso de privacidad"
           />
           <Button type="submit" disabled={status.kind === "sending"}>
-            {status.kind === "sending" ? "Enviando…" : "Enviar solicitud"}
+            {status.kind === "sending" ? "Enviando…" : "Enviar"}
           </Button>
         </div>
       </div>
@@ -140,13 +138,10 @@ export function ContactForm() {
       {status.kind === "sent" ? (
         <p
           role="status"
-          style={{
-            marginTop: 20,
-            fontSize: 15,
-            color: "var(--status-available)",
-          }}
+          style={{ marginTop: 20, fontSize: 15, color: "var(--status-available)" }}
         >
-          Recibimos tu solicitud. Un asesor te responde el mismo día hábil.
+          Gracias, recibimos tus datos. Un asesor te contacta en menos de 24 horas
+          hábiles.
         </p>
       ) : null}
 

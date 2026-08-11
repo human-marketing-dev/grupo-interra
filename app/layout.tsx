@@ -22,18 +22,18 @@ const barlow = Barlow({
 
 export const metadata: Metadata = {
   title: {
-    default: "Grupo Interra — Tierra con vocación, lista para construirse",
+    default: "Grupo Interra — Parques industriales y desarrollos residenciales",
     template: "%s · Grupo Interra",
   },
   description:
-    "Adquirimos, urbanizamos y comercializamos reservas territoriales residenciales, industriales y comerciales en el Bajío mexicano.",
+    "Fortalecemos el desarrollo económico de Nuevo León construyendo parques industriales, desarrollos residenciales y espacios comerciales con infraestructura, servicios y amenidades de primer nivel.",
   openGraph: {
     type: "website",
     locale: "es_MX",
     siteName: "Grupo Interra",
-    title: "Grupo Interra — Tierra con vocación, lista para construirse",
+    title: "Grupo Interra — Parques industriales y desarrollos residenciales",
     description:
-      "Reservas territoriales residenciales, industriales y comerciales en el corredor Querétaro–Bajío.",
+      "Parques industriales, desarrollos residenciales y espacios comerciales en Nuevo León.",
   },
 };
 

@@ -1,8 +1,7 @@
 import Image from "next/image";
 import { Button } from "@/components/ds/Button";
 import { FeatureItem } from "@/components/ds/FeatureItem";
-import { SectionHeading } from "@/components/ds/SectionHeading";
-import { DIFFERENTIATORS } from "@/content/site";
+import { ABOUT, HERO } from "@/content/site";
 
 export function About() {
   return (
@@ -12,70 +11,85 @@ export function About() {
       style={{ background: "var(--surface-subtle)" }}
     >
       <div className="ds-container grid items-center gap-12 lg:grid-cols-2 lg:gap-18">
+        <div>
+          <div className="flex items-center gap-3">
+            <span className="ds-rule" />
+            <span className="ds-eyebrow" style={{ color: "var(--text-secondary)" }}>
+              {ABOUT.eyebrow}
+            </span>
+          </div>
+
+          <h2
+            style={{
+              marginTop: 16,
+              fontSize: "var(--fs-display-md)",
+              lineHeight: "var(--lh-snug)",
+              letterSpacing: "var(--ls-display)",
+              textWrap: "balance",
+            }}
+          >
+            {ABOUT.title}
+          </h2>
+
+          {ABOUT.paragraphs.map((paragraph, index) => (
+            <p
+              key={paragraph.slice(0, 32)}
+              style={{
+                marginTop: index === 0 ? 16 : 18,
+                fontSize: "var(--fs-body-lg)",
+                lineHeight: "var(--lh-body)",
+                color: "var(--text-secondary)",
+                textWrap: "pretty",
+              }}
+            >
+              {paragraph}
+            </p>
+          ))}
+
+          <div className="mt-9 flex flex-col gap-[26px]">
+            {ABOUT.features.map((feature) => (
+              <FeatureItem key={feature.title} {...feature} />
+            ))}
+          </div>
+
+          <div className="mt-9">
+            <Button href="#desarrollos" variant="outline">
+              Ver desarrollos
+            </Button>
+          </div>
+        </div>
+
         <div
-          className="ds-hatch"
-          style={{
-            aspectRatio: "4 / 5",
-            borderRadius: "var(--radius-lg)",
-            position: "relative",
-            overflow: "hidden",
-          }}
+          className="relative overflow-hidden max-lg:aspect-[16/10] lg:aspect-4/5"
+          style={{ borderRadius: "var(--radius-lg)" }}
         >
+          <Image
+            src={HERO.photo}
+            alt="Caseta de acceso e instalaciones de Grupo Interra"
+            fill
+            sizes="(max-width: 1024px) 100vw, 560px"
+            style={{ objectFit: "cover" }}
+          />
           <div
             style={{
               position: "absolute",
               inset: 0,
               background:
-                "linear-gradient(180deg, rgb(0 38 57 / 0) 40%, rgb(0 38 57 / 0.9))",
-            }}
-          />
-          <Image
-            src="/brand/logo-mark-white.png"
-            alt=""
-            width={595}
-            height={450}
-            aria-hidden
-            style={{
-              position: "absolute",
-              left: "50%",
-              top: "46%",
-              transform: "translate(-50%, -50%)",
-              width: "52%",
-              height: "auto",
-              opacity: 0.12,
+                "linear-gradient(180deg, rgb(0 38 57 / 0) 45%, rgb(0 38 57 / 0.85))",
             }}
           />
           <div
-            style={{
-              position: "absolute",
-              left: 28,
-              bottom: 26,
-              color: "rgb(255 255 255 / 0.66)",
-              fontSize: 13,
-            }}
+            style={{ position: "absolute", left: 28, bottom: 26, color: "#fff" }}
           >
-            Fotografía pendiente · sustituir por aérea de dron
-          </div>
-        </div>
-
-        <div>
-          <SectionHeading
-            eyebrow="Nosotros"
-            title="Compramos tierra que otros no saben leer"
-            description="Grupo Interra nació en 2008 comprando reservas en el Bajío. Hoy urbanizamos, escrituramos y comercializamos con equipo propio."
-            style={{ maxWidth: "none" }}
-          />
-
-          <div className="mt-9 flex flex-col gap-[26px]">
-            {DIFFERENTIATORS.map((item) => (
-              <FeatureItem key={item.title} {...item} />
-            ))}
-          </div>
-
-          <div className="mt-9">
-            <Button href="#contacto" variant="outline">
-              Conocer la empresa
-            </Button>
+            <div
+              className="ds-eyebrow"
+              style={{ fontSize: 11, letterSpacing: "0.16em", color: "var(--interra-orange)" }}
+            >
+              {ABOUT.photoCaption.eyebrow}
+            </div>
+            <div style={{ marginTop: 6, fontSize: 16 }}>
+              {ABOUT.photoCaption.text}
+            </div>
           </div>
         </div>
       </div>

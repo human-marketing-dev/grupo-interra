@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import type { ReactNode } from "react";
 import { Badge, type BadgeTone } from "./Badge";
 
 export type PropertyStatus = Extract<
@@ -7,16 +8,31 @@ export type PropertyStatus = Extract<
   "available" | "reserved" | "sold"
 >;
 
-export type PropertyCardProps = {
+export type PropertyImage = {
+  src: string;
+  alt: string;
+  /** "contain" para planos y mapas, que no se pueden recortar. */
+  fit?: "cover" | "contain";
+};
+
+/** Forma canónica de un desarrollo: la comparten tarjeta y modal. */
+export type Property = {
   name: string;
   location: string;
-  category?: string;
-  status?: PropertyStatus;
-  statusLabel?: string;
-  area: string;
+  category: string;
+  status: PropertyStatus;
+  statusLabel: string;
+  /** Superficie, número de lotes o etapa — lo que distingue al desarrollo. */
+  meta: string;
   price: string;
-  /** Ruta en /public. Sin imagen cae al placeholder de trama navy. */
-  image?: string;
+  description?: string;
+  images?: PropertyImage[];
+};
+
+export type PropertyCardProps = {
+  property: Property;
+  /** Con handler la tarjeta abre el modal; sin él navega a `href`. */
+  onSelect?: () => void;
   href?: string;
   className?: string;
 };
@@ -26,32 +42,27 @@ export type PropertyCardProps = {
  * luego un pie con ubicación, superficie y precio separados por hairline.
  */
 export function PropertyCard({
-  name,
-  location,
-  category = "Residencial",
-  status = "available",
-  statusLabel = "Disponible",
-  area,
-  price,
-  image,
-  href = "#proyectos",
+  property,
+  onSelect,
+  href = "#contacto",
   className,
 }: PropertyCardProps) {
-  return (
-    <Link
-      href={href}
-      className={["ds-property", className].filter(Boolean).join(" ")}
-    >
+  const cover = property.images?.[0];
+  const extra = (property.images?.length ?? 0) - 1;
+  const classes = ["ds-property", className].filter(Boolean).join(" ");
+
+  const body: ReactNode = (
+    <>
       <div
-        className={image ? undefined : "ds-hatch--tight"}
+        className={cover ? undefined : "ds-hatch--tight"}
         style={{ position: "relative", aspectRatio: "4 / 3", overflow: "hidden" }}
       >
-        {image ? (
+        {cover ? (
           <Image
-            src={image}
+            src={cover.src}
             alt=""
             fill
-            sizes="(max-width: 720px) 100vw, (max-width: 1100px) 50vw, 400px"
+            sizes="(max-width: 768px) 100vw, (max-width: 1100px) 50vw, 460px"
             style={{ objectFit: "cover" }}
           />
         ) : null}
@@ -59,10 +70,29 @@ export function PropertyCard({
         <div className="ds-property__scrim" />
 
         <div style={{ position: "absolute", top: 16, left: 16 }}>
-          <Badge tone={status} dot>
-            {statusLabel}
+          <Badge tone={property.status} dot>
+            {property.statusLabel}
           </Badge>
         </div>
+
+        {extra > 0 ? (
+          <span
+            className="ds-eyebrow"
+            style={{
+              position: "absolute",
+              top: 16,
+              right: 16,
+              fontSize: 11,
+              letterSpacing: "0.12em",
+              color: "rgb(255 255 255 / 0.86)",
+              background: "rgb(0 24 36 / 0.55)",
+              padding: "5px 9px",
+              borderRadius: "var(--radius-sm)",
+            }}
+          >
+            +{extra} fotos
+          </span>
+        ) : null}
 
         <div
           style={{
@@ -84,10 +114,10 @@ export function PropertyCard({
               marginBottom: 6,
             }}
           >
-            {category}
+            {property.category}
           </div>
           <h3 style={{ fontSize: 24, color: "#fff", letterSpacing: "-0.01em" }}>
-            {name}
+            {property.name}
           </h3>
         </div>
       </div>
@@ -100,7 +130,7 @@ export function PropertyCard({
             marginBottom: 14,
           }}
         >
-          {location}
+          {property.location}
         </div>
         <div
           style={{
@@ -112,7 +142,9 @@ export function PropertyCard({
             paddingTop: 14,
           }}
         >
-          <span style={{ fontSize: 14, color: "var(--text-muted)" }}>{area}</span>
+          <span style={{ fontSize: 14, color: "var(--text-muted)" }}>
+            {property.meta}
+          </span>
           <span
             style={{
               fontFamily: "var(--font-display)",
@@ -120,10 +152,31 @@ export function PropertyCard({
               fontSize: 17,
             }}
           >
-            {price}
+            {property.price}
           </span>
         </div>
       </div>
+    </>
+  );
+
+  if (onSelect) {
+    return (
+      <button
+        type="button"
+        onClick={onSelect}
+        className={classes}
+        style={{ textAlign: "left", cursor: "pointer", padding: 0 }}
+        aria-haspopup="dialog"
+        aria-label={`Ver ${property.name} en ${property.location}`}
+      >
+        {body}
+      </button>
+    );
+  }
+
+  return (
+    <Link href={href} className={classes}>
+      {body}
     </Link>
   );
 }

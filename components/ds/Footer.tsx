@@ -8,12 +8,14 @@ export type FooterColumn = {
 
 export type FooterProps = {
   logoSrc?: string;
+  description?: string;
   columns?: FooterColumn[];
   legal?: string;
 };
 
 export function Footer({
   logoSrc,
+  description = "Desarrollo y comercialización de tierra con vocación residencial, industrial y comercial.",
   columns = [],
   legal = `© ${new Date().getFullYear()} Grupo Interra. Todos los derechos reservados.`,
 }: FooterProps) {
@@ -52,13 +54,12 @@ export function Footer({
           <p
             style={{
               marginTop: 18,
-              maxWidth: 280,
+              maxWidth: 300,
               fontSize: 15,
               color: "rgb(255 255 255 / 0.62)",
             }}
           >
-            Desarrollo y comercialización de tierra con vocación residencial,
-            industrial y comercial.
+            {description}
           </p>
         </div>
 

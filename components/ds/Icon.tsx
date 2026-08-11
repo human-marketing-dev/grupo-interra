@@ -6,13 +6,25 @@ import {
   Download,
   Factory,
   FileCheck,
+  Globe,
+  Handshake,
   Home,
   Mail,
   MapPin,
+  Package,
   Phone,
+  PlugZap,
   Route,
   Ruler,
+  ShieldCheck,
+  Store,
+  TrendingUp,
   Trees,
+  Users,
+  Utensils,
+  Wifi,
+  Wrench,
+  Zap,
   type LucideProps,
 } from "lucide-react";
 
@@ -21,10 +33,12 @@ import {
  * cuadrados, geometría recta. Los iconos nunca se rellenan ni llevan color
  * propio — heredan `currentColor`.
  *
- * El set de casa es cerrado a propósito; si necesitas otro icono, súbelo
- * primero al sistema de diseño.
+ * El set de casa del readme del sistema es el primer bloque. El segundo son los
+ * que pide la landing real (beneficios IBP, Business Plaza) y que aún no están
+ * documentados allá: si el set se formaliza, hay que reconciliarlos.
  */
 const ICONS = {
+  // set de casa
   "arrow-left": ArrowLeft,
   "arrow-right": ArrowRight,
   "building-2": Building2,
@@ -39,6 +53,20 @@ const ICONS = {
   route: Route,
   ruler: Ruler,
   trees: Trees,
+
+  // añadidos por la landing
+  globe: Globe,
+  handshake: Handshake,
+  package: Package,
+  "plug-zap": PlugZap,
+  "shield-check": ShieldCheck,
+  store: Store,
+  "trending-up": TrendingUp,
+  users: Users,
+  utensils: Utensils,
+  wifi: Wifi,
+  wrench: Wrench,
+  zap: Zap,
 } as const;
 
 export type IconName = keyof typeof ICONS;
