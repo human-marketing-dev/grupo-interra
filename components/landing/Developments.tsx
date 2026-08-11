@@ -8,7 +8,6 @@ import { SectionHeading } from "@/components/ds/SectionHeading";
 import {
   DEVELOPMENTS,
   DEVELOPMENT_TABS,
-  TENANT_BRANDS,
   type DevelopmentTab,
 } from "@/content/site";
 
@@ -173,30 +172,6 @@ function Panel({
         ))}
       </div>
 
-      {tab.id === "comercial" ? (
-        <div
-          className="mt-16 pt-10"
-          style={{ borderTop: "var(--border-width) solid var(--border-subtle)" }}
-        >
-          <div
-            className="ds-eyebrow"
-            style={{ letterSpacing: "0.14em", color: "var(--text-secondary)" }}
-          >
-            Marcas que ya operan con nosotros
-          </div>
-          <div className="mt-6 grid grid-cols-3 gap-3.5 md:grid-cols-6">
-            {TENANT_BRANDS.map((brand) => (
-              <div key={brand} className="ds-brand">
-                {brand}
-              </div>
-            ))}
-          </div>
-          <div style={{ marginTop: 14, fontSize: 13, color: "var(--text-muted)" }}>
-            Marcas representadas en texto — pendiente recibir los archivos de
-            logotipo de cada una.
-          </div>
-        </div>
-      ) : null}
     </div>
   );
 }

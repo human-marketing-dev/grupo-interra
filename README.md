@@ -30,15 +30,25 @@ Si vuelves a sincronizar desde el sistema de diseño, parte de
 | `app/layout.tsx` | Fuentes (Archivo + Barlow vía `next/font`), metadata, `lang="es-MX"` |
 | `app/page.tsx` | Composición de la landing |
 | `components/ds/` | Componentes del sistema: Button, Badge, Tag, Card, IconButton, Input, Select, Checkbox, SectionHeading, StatBlock, FeatureItem, PropertyCard, Navbar, Footer, Icon |
-| `components/landing/` | Secciones: Hero, About, Developments, Partners, CtaBand, Contact |
+| `components/landing/` | Secciones: Hero, About, Developments, Commercial, CtaBand, Contact |
 | `content/site.ts` | Todo el copy y los datos de la landing |
 | `public/brand/` | Logotipos recortados (sin el ~92% de lienzo transparente del original) |
 | `public/photos/` | Fotografía (`projects/` = galerías por desarrollo) |
 
+## Estructura de la página
+
+Hero → Sobre nosotros → Desarrollos (tabs Industrial / Residencial) →
+Comercial → CTA naranja → Contacto → Footer.
+
+Comercial tiene sección propia (`#comercial`) porque es un solo proyecto, no un
+listado: ahí viven también las marcas ancla. **`Partners.tsx` (IBP + Partners)
+existe pero no está montada** — salió en este rediseño; se conserva porque es
+contenido real del cliente.
+
 ## Modal de desarrollo
 
-Cada tarjeta de `Developments` abre un `PropertyModal` con carrusel y la ficha
-del desarrollo. Está montado sobre `<dialog>` nativo, así que el foco queda
+Cada tarjeta de `Developments` y `Commercial` abre un `PropertyModal` con
+carrusel y la ficha del desarrollo. Está montado sobre `<dialog>` nativo, así que el foco queda
 atrapado, Esc cierra y el fondo queda inerte sin código extra; el modal añade
 clic en backdrop, flechas ← → y bloqueo del scroll de fondo.
 

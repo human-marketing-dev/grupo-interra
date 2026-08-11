@@ -732,6 +732,12 @@ select.ds-field {
   color: inherit;
 }
 
+/* Como <button> la tarjeta se encoge a su contenido: dentro de una rejilla da
+   igual porque el track la estira, pero suelta en un bloque queda angosta. */
+button.ds-property {
+  width: 100%;
+}
+
 .ds-property__scrim {
   position: absolute;
   inset: 0;
@@ -852,6 +858,10 @@ select.ds-field {
    ========================================================================== */
 
 .ds-modal {
+  /* El preflight de Tailwind pone `margin: 0` en `*` y eso pisa el
+     `margin: auto` que el navegador le da a <dialog>: sin esto el modal se
+     pega a la esquina superior izquierda en vez de centrarse. */
+  margin: auto;
   width: min(1180px, calc(100vw - 2 * var(--gutter)));
   max-width: none;
   max-height: min(92dvh, 860px);

@@ -1,11 +1,11 @@
 import { Footer } from "@/components/ds/Footer";
 import { Navbar } from "@/components/ds/Navbar";
 import { About } from "@/components/landing/About";
+import { Commercial } from "@/components/landing/Commercial";
 import { Contact } from "@/components/landing/Contact";
 import { CtaBand } from "@/components/landing/CtaBand";
 import { Developments } from "@/components/landing/Developments";
 import { Hero } from "@/components/landing/Hero";
-import { Partners } from "@/components/landing/Partners";
 import { FOOTER_COLUMNS, FOOTER_DESCRIPTION, NAV_LINKS } from "@/content/site";
 
 export default function LandingPage() {
@@ -17,7 +17,7 @@ export default function LandingPage() {
         <Hero />
         <About />
         <Developments />
-        <Partners />
+        <Commercial />
         <CtaBand />
         <Contact />
       </main>

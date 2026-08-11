@@ -74,7 +74,7 @@ export type DevelopmentTab = {
 export const DEVELOPMENTS = {
   eyebrow: "Portafolio",
   title: "Conoce nuestros desarrollos",
-  lead: "Tres verticales, una misma forma de trabajar: infraestructura resuelta, servicios completos y amenidades que sostienen la plusvalía.",
+  lead: "Una misma forma de trabajar: infraestructura resuelta, servicios completos y amenidades que sostienen la plusvalía.",
 };
 
 export const DEVELOPMENT_TABS: DevelopmentTab[] = [
@@ -290,37 +290,39 @@ export const DEVELOPMENT_TABS: DevelopmentTab[] = [
       },
     ],
   },
-  {
-    id: "comercial",
-    label: "Comercial",
-    heading: "IBP Interra Business Plaza",
-    body: "Proyecto de locales comerciales tipo workshop, con amplio espacio para showroom, oficinas, producción y almacenaje. 14 locales desde 190 hasta 500 m², con agua, drenaje, telefonía, internet y energía eléctrica.",
-    stats: [
-      { value: "14", label: "locales tipo workshop" },
-      { value: "190–500 m²", label: "superficie por local" },
-    ],
-    benefitsTitle: "Lo que incluye",
-    benefits: [
-      { icon: "store", label: "Showroom y oficinas" },
-      { icon: "package", label: "Producción y almacenaje" },
-      { icon: "plug-zap", label: "Agua, drenaje y energía" },
-      { icon: "wifi", label: "Telefonía e internet" },
-    ],
-    projects: [
-      {
-        name: "IBP Interra Business Plaza",
-        location: "Salinas Victoria, N.L.",
-        meta: "14 locales · 190–500 m²",
-        price: "A consultar",
-        status: "available",
-        statusLabel: "Activo",
-        category: "Comercial",
-        description:
-          "Locales comerciales tipo workshop con amplio espacio para showroom, oficinas, producción y almacenaje. Cuentan con agua, drenaje, telefonía, internet y energía eléctrica.",
-      },
-    ],
-  },
 ];
+
+/** Comercial vive en su propia sección: es un solo proyecto, no un listado. */
+export const COMMERCIAL = {
+  eyebrow: "Comercial",
+  title: "IBP Interra Business Plaza",
+  lead: "Proyecto de locales comerciales tipo workshop, con amplio espacio para showroom, oficinas, producción y almacenaje. 14 locales desde 190 hasta 500 m², con agua, drenaje, telefonía, internet y energía eléctrica.",
+  stats: [
+    { value: "14", label: "locales tipo workshop" },
+    { value: "190–500 m²", label: "superficie por local" },
+  ],
+  benefitsTitle: "Lo que incluye",
+  benefits: [
+    { icon: "store", label: "Showroom y oficinas" },
+    { icon: "package", label: "Producción y almacenaje" },
+    { icon: "plug-zap", label: "Agua, drenaje y energía" },
+    { icon: "wifi", label: "Telefonía e internet" },
+  ] as Benefit[],
+  project: {
+    name: "IBP Interra Business Plaza",
+    location: "Salinas Victoria, N.L.",
+    meta: "14 locales · 190–500 m²",
+    price: "A consultar",
+    status: "available",
+    statusLabel: "Activo",
+    category: "Comercial",
+    description:
+      "Locales comerciales tipo workshop con amplio espacio para showroom, oficinas, producción y almacenaje. Cuentan con agua, drenaje, telefonía, internet y energía eléctrica.",
+  } as Property,
+  brandsTitle: "Marcas que ya operan con nosotros",
+  brandsNote:
+    "Marcas representadas en texto — pendiente recibir los archivos de logotipo de cada una.",
+};
 
 /** Representadas en texto: falta recibir los archivos de logotipo. */
 export const TENANT_BRANDS = [
@@ -378,7 +380,7 @@ export const FOOTER_COLUMNS = [
     links: [
       { label: "Industrial", href: "#desarrollos" },
       { label: "Residencial", href: "#desarrollos" },
-      { label: "Comercial", href: "#desarrollos" },
+      { label: "Comercial", href: "#comercial" },
     ],
   },
   {
