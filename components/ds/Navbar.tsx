@@ -66,7 +66,9 @@ export function Navbar({
               alt=""
               width={158}
               height={30}
-              priority
+              // Eager, no `preload`: van sobre el pliegue pero pesan poco y no
+              // deben competir en el <head> con la foto del héroe.
+              loading="eager"
               style={{
                 width: 158,
                 height: "auto",

@@ -16,7 +16,11 @@ export function Hero() {
         src={HERO.photo}
         alt={HERO.photoAlt}
         fill
-        priority
+        // Next 16 deprecó `priority`. Su equivalente son las DOS props: sin
+        // `loading="eager"` la imagen se preloadea en el <head> pero el <img>
+        // conserva el `loading="lazy"` por defecto, que es contradictorio.
+        preload
+        loading="eager"
         sizes="100vw"
         style={{
           objectFit: "cover",

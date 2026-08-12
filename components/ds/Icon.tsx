@@ -1,6 +1,7 @@
 import {
   ArrowLeft,
   ArrowRight,
+  Blocks,
   Building2,
   Check,
   Download,
@@ -9,6 +10,7 @@ import {
   Globe,
   Handshake,
   Home,
+  HousePlus,
   Mail,
   MapPin,
   Package,
@@ -55,8 +57,10 @@ const ICONS = {
   trees: Trees,
 
   // añadidos por la landing
+  blocks: Blocks,
   globe: Globe,
   handshake: Handshake,
+  "house-plus": HousePlus,
   package: Package,
   "plug-zap": PlugZap,
   "shield-check": ShieldCheck,

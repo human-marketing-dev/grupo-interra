@@ -79,6 +79,169 @@ export const DEVELOPMENTS = {
 
 export const DEVELOPMENT_TABS: DevelopmentTab[] = [
   {
+    id: "residencial",
+    label: "Residencial",
+    heading: "Vivienda y comunidades",
+    body: "En 2008 Grupo Interra inició con proyectos de construcción de fraccionamientos de interés social como Mirador del Parque, San Marcos del Parque I, III y IV, Portal del Parque, Rincón del Parque, San Miguel del Parque y Arboledas del Parque. Gracias al desarrollo de estas comunidades se obtuvo la base para continuar lo que somos hoy.",
+    benefitsTitle: "Lo que incluye",
+    benefits: [
+      { icon: "trees", label: "Áreas verdes y amenidades" },
+      { icon: "shield-check", label: "Accesos controlados" },
+      { icon: "route", label: "Vialidades terminadas" },
+      { icon: "file-check", label: "Escrituración lista" },
+    ],
+    projects: [
+      {
+        name: "Misión del Parque",
+        location: "Apodaca, N.L.",
+        meta: "Fraccionamiento",
+        price: "A consultar",
+        status: "available",
+        statusLabel: "Activo",
+        category: "Residencial",
+      },
+      {
+        name: "Lantana",
+        location: "Guadalupe, N.L.",
+        meta: "Fraccionamiento",
+        price: "A consultar",
+        status: "available",
+        statusLabel: "Activo",
+        category: "Residencial",
+        images: [
+          {
+            src: "/residencial/lantana/lantana-casa-4.webp",
+            alt: "Casa muestra de Lantana",
+          },
+          {
+            src: "/residencial/lantana/lantana-casa.webp",
+            alt: "Fachada de casa en Lantana",
+          },
+          {
+            src: "/residencial/lantana/lantana-casa-2.webp",
+            alt: "Casa de Lantana desde el acceso",
+          },
+          {
+            src: "/residencial/lantana/lantana-casa-3.webp",
+            alt: "Interior de casa muestra de Lantana",
+          },
+          {
+            src: "/residencial/lantana/lantana-residencial.webp",
+            alt: "Conjunto residencial Lantana",
+          },
+          {
+            src: "/residencial/lantana/Lantana-0103.webp",
+            alt: "Áreas comunes de Lantana",
+          },
+          {
+            src: "/residencial/lantana/Lantana-0116.webp",
+            alt: "Amenidades de Lantana",
+          },
+        ],
+      },
+      {
+        name: "Altares Residencial",
+        location: "Santiago, N.L.",
+        meta: "Lotes residenciales",
+        price: "A consultar",
+        status: "available",
+        statusLabel: "Activo",
+        category: "Residencial",
+        images: [
+          {
+            src: "/residencial/altares/altares-casa-club-4.webp",
+            alt: "Casa club de Altares Residencial",
+          },
+          {
+            src: "/residencial/altares/altares-casa-club.webp",
+            alt: "Casa club de Altares Residencial desde el acceso",
+          },
+          {
+            src: "/residencial/altares/altares-casa-club-3.webp",
+            alt: "Áreas comunes de la casa club de Altares Residencial",
+          },
+          {
+            src: "/residencial/altares/altares-casa-club-aerea.webp",
+            alt: "Vista aérea de la casa club de Altares Residencial",
+          },
+          {
+            src: "/residencial/altares/altares-casa-club-noche.webp",
+            alt: "Casa club de Altares Residencial iluminada de noche",
+          },
+          {
+            src: "/residencial/altares/altares-caseta.webp",
+            alt: "Caseta de acceso de Altares Residencial",
+          },
+          {
+            src: "/residencial/altares/altares-caseta-2.webp",
+            alt: "Caseta de acceso de Altares Residencial desde la vialidad",
+          },
+          {
+            src: "/residencial/altares/altares-caseta-3.webp",
+            alt: "Detalle de la caseta de acceso de Altares Residencial",
+          },
+          {
+            src: "/residencial/altares/altares-caseta-noche.webp",
+            alt: "Caseta de acceso de Altares Residencial de noche",
+          },
+        ],
+      },
+      {
+        name: "Cyrá Residencial",
+        location: "Santiago, N.L.",
+        meta: "Lotes residenciales",
+        price: "A consultar",
+        status: "reserved",
+        statusLabel: "Próximamente",
+        category: "Residencial",
+      },
+      {
+        name: "Santte Residencial",
+        location: "Santiago, N.L.",
+        meta: "Etapas I, II y III",
+        price: "A consultar",
+        status: "available",
+        statusLabel: "Activo",
+        category: "Residencial",
+        images: [
+          {
+            src: "/residencial/santte-residencial/RENDER-CASA-CLUB-SANTTE (4).webp",
+            alt: "Render de la casa club de Santte Residencial",
+          },
+          {
+            src: "/residencial/santte-residencial/RENDER-CASA-CLUB-SANTTE (1).webp",
+            alt: "Render de la casa club de Santte Residencial desde el acceso",
+          },
+          {
+            src: "/residencial/santte-residencial/RENDER-CASA-CLUB-SANTTE (2).webp",
+            alt: "Render de las áreas comunes de la casa club de Santte Residencial",
+          },
+          {
+            src: "/residencial/santte-residencial/RENDER-CASA-CLUB-SANTTE (3).webp",
+            alt: "Render del interior de la casa club de Santte Residencial",
+          },
+          {
+            src: "/residencial/santte-residencial/RENDER-CASA-CLUB-SANTTE (5).webp",
+            alt: "Render nocturno de la casa club de Santte Residencial",
+          },
+          {
+            src: "/residencial/santte-residencial/SANTTE RESIDENCIAL CASETA DE ACCESOse.webp",
+            alt: "Caseta de acceso de Santte Residencial",
+          },
+        ],
+      },
+      {
+        name: "Sierras III",
+        location: "Santiago, N.L.",
+        meta: "Lotes residenciales",
+        price: "A consultar",
+        status: "available",
+        statusLabel: "Activo",
+        category: "Residencial",
+      },
+    ],
+  },
+  {
     id: "industrial",
     label: "Industrial",
     heading: "Parques industriales IBP",
@@ -111,33 +274,42 @@ export const DEVELOPMENT_TABS: DevelopmentTab[] = [
         status: "available",
         statusLabel: "Activo",
         category: "Industrial",
-        // TODO CONFIRMAR: las seis fotos venían nombradas "IBPSANTA-32..37" y
-        // ninguna trae señalética. Santa Catarina tiene tres parques (100, 200
-        // y 400), así que esta asignación es provisional.
         images: [
           {
-            src: "/photos/projects/ibp-santa-1.jpg",
-            alt: "Vista aérea del parque industrial con naves y la sierra al fondo",
+            src: "/industrial/ibp100/ibp-100.webp",
+            alt: "Edificio de acceso de IBP Parque 100 al pie de la sierra",
           },
           {
-            src: "/photos/projects/ibp-santa-2.jpg",
-            alt: "Naves industriales del parque desde el aire",
+            src: "/industrial/ibp100/ibp-100-aerea.webp",
+            alt: "Vista aérea de IBP Parque 100",
           },
           {
-            src: "/photos/projects/ibp-santa-3.jpg",
-            alt: "Área de comedor común iluminada de noche",
+            src: "/industrial/ibp100/ibp-100-aerea-2.webp",
+            alt: "Vista aérea de IBP Parque 100 desde otro ángulo",
           },
           {
-            src: "/photos/projects/ibp-santa-4.jpg",
-            alt: "Vialidades y lotes del parque industrial",
+            src: "/industrial/ibp100/ibp-100-caseta-aerea.webp",
+            alt: "Caseta de acceso de IBP Parque 100 desde el aire",
           },
           {
-            src: "/photos/projects/ibp-santa-5.jpg",
-            alt: "Edificio de oficinas con fachada de piedra y vista a la ciudad",
+            src: "/industrial/ibp100/ibp-100-fachada.webp",
+            alt: "Fachada del edificio de IBP Parque 100",
           },
           {
-            src: "/photos/projects/ibp-santa-6.jpg",
-            alt: "Conjunto del parque industrial al pie de la sierra",
+            src: "/industrial/ibp100/ibp-100-amenidades.webp",
+            alt: "Amenidades de IBP Parque 100",
+          },
+          {
+            src: "/industrial/ibp100/ibp-100-nave.webp",
+            alt: "Nave industrial en IBP Parque 100",
+          },
+          {
+            src: "/industrial/ibp100/ibp-100-noche.webp",
+            alt: "IBP Parque 100 iluminado de noche",
+          },
+          {
+            src: "/industrial/ibp100/ibp-100-vane-1.webp",
+            alt: "Instalaciones de IBP Parque 100",
           },
         ],
       },
@@ -149,6 +321,24 @@ export const DEVELOPMENT_TABS: DevelopmentTab[] = [
         status: "available",
         statusLabel: "Activo",
         category: "Industrial",
+        images: [
+          {
+            src: "/industrial/ibp200/ibp-200-caseta.webp",
+            alt: "Caseta de acceso de IBP Parque 200",
+          },
+          {
+            src: "/industrial/ibp200/ibp-200-aerea.webp",
+            alt: "Vista aérea de IBP Parque 200",
+          },
+          {
+            src: "/industrial/ibp200/ibp-200-aerea-2.webp",
+            alt: "Vista aérea de IBP Parque 200 desde otro ángulo",
+          },
+          {
+            src: "/industrial/ibp200/ibp-200-aerea-3.webp",
+            alt: "Conjunto de IBP Parque 200 desde el aire",
+          },
+        ],
       },
       {
         name: "Salinas IBP I",
@@ -162,11 +352,19 @@ export const DEVELOPMENT_TABS: DevelopmentTab[] = [
           "Parque industrial exclusivo con 213 lotes, caseta y vigilancia, y Business Center equipado con oficinas y área de comedor común. Fácil acceso a puentes fronterizos, vías de transportación y zona habitacional.",
         images: [
           {
+            src: "/industrial/ibp_salinas/ibp-salinas-caseta.webp",
+            alt: "Monumento de acceso de IBP Salinas sobre la vialidad principal",
+          },
+          {
+            src: "/industrial/ibp_salinas/ibp-salinas-oficinas.webp",
+            alt: "Oficinas del Business Center de IBP Salinas",
+          },
+          {
             src: "/photos/hero-caseta.jpg",
             alt: "Caseta de acceso y Business Center del parque al anochecer",
           },
           {
-            src: "/photos/projects/salinas-mapa.webp",
+            src: "/industrial/ibp_salinas/ibp-salinas-mapa.webp",
             alt: "Mapa de ubicación sobre la carretera Sta. Rosa – Salinas Victoria",
             fit: "contain",
           },
@@ -201,96 +399,61 @@ export const DEVELOPMENT_TABS: DevelopmentTab[] = [
       },
     ],
   },
-  {
-    id: "residencial",
-    label: "Residencial",
-    heading: "Vivienda y comunidades",
-    body: "En 2008 Grupo Interra inició con proyectos de construcción de fraccionamientos de interés social como Mirador del Parque, San Marcos del Parque I, III y IV, Portal del Parque, Rincón del Parque, San Miguel del Parque y Arboledas del Parque. Gracias al desarrollo de estas comunidades se obtuvo la base para continuar lo que somos hoy.",
-    benefitsTitle: "Lo que incluye",
-    benefits: [
-      { icon: "trees", label: "Áreas verdes y amenidades" },
-      { icon: "shield-check", label: "Accesos controlados" },
-      { icon: "route", label: "Vialidades terminadas" },
-      { icon: "file-check", label: "Escrituración lista" },
-    ],
-    projects: [
-      {
-        name: "Misión del Parque",
-        location: "Apodaca, N.L.",
-        meta: "Fraccionamiento",
-        price: "A consultar",
-        status: "available",
-        statusLabel: "Activo",
-        category: "Residencial",
-      },
-      {
-        name: "Lantana",
-        location: "Guadalupe, N.L.",
-        meta: "Fraccionamiento",
-        price: "A consultar",
-        status: "available",
-        statusLabel: "Activo",
-        category: "Residencial",
-        images: [
-          {
-            src: "/photos/projects/lantana-1.jpg",
-            alt: "Sports bar y área común del fraccionamiento Lantana",
-          },
-        ],
-      },
-      {
-        name: "Altares Residencial",
-        location: "Santiago, N.L.",
-        meta: "Lotes residenciales",
-        price: "A consultar",
-        status: "available",
-        statusLabel: "Activo",
-        category: "Residencial",
-      },
-      {
-        name: "Cyrá Residencial",
-        location: "Santiago, N.L.",
-        meta: "Lotes residenciales",
-        price: "A consultar",
-        status: "reserved",
-        statusLabel: "Próximamente",
-        category: "Residencial",
-      },
-      {
-        name: "Santte Residencial",
-        location: "Santiago, N.L.",
-        meta: "Etapas I, II y III",
-        price: "A consultar",
-        status: "available",
-        statusLabel: "Activo",
-        category: "Residencial",
-        images: [
-          {
-            src: "/photos/projects/santte-1.jpg",
-            alt: "Vista del desarrollo Santte Residencial en Santiago",
-          },
-          {
-            src: "/photos/projects/santte-2.jpg",
-            alt: "Lotes y vialidades de Santte Residencial",
-          },
-          {
-            src: "/photos/projects/santte-3.jpg",
-            alt: "Entorno de montaña de Santte Residencial",
-          },
-        ],
-      },
-      {
-        name: "Sierras III",
-        location: "Santiago, N.L.",
-        meta: "Lotes residenciales",
-        price: "A consultar",
-        status: "available",
-        statusLabel: "Activo",
-        category: "Residencial",
-      },
-    ],
-  },
 ];
+
+/**
+ * Datos duros del portafolio histórico.
+ *
+ * TRANSCRITOS DE UNA IMAGEN que envió el cliente — verifícalos contra la fuente
+ * original antes de publicar. El encabezado de la sección sí es redacción
+ * propia: la lámina original no traía título.
+ */
+export const HARD_NUMBERS = {
+  eyebrow: "Trayectoria",
+  title: "Interra en números",
+  columns: [
+    {
+      icon: "home" as IconName,
+      category: "Residenciales",
+      primary: { label: "Número de lotes", value: "+7,294" },
+      secondary: [{ label: "m² vendibles", value: "2,130,261" }],
+    },
+    {
+      icon: "house-plus" as IconName,
+      category: "Residenciales EUA",
+      primary: { label: "Número de lotes", value: "+226" },
+      secondary: [{ label: "Número de casas", value: "51" }],
+    },
+    {
+      icon: "blocks" as IconName,
+      category: "De interés social",
+      primary: { label: "Número de lotes", value: "+2,720" },
+      secondary: [
+        { label: "m² vendibles", value: "2,165,640" },
+        { label: "Macrolotes", value: "14" },
+      ],
+    },
+    {
+      icon: "factory" as IconName,
+      category: "Industriales",
+      primary: { label: "Número de lotes", value: "+756" },
+      secondary: [
+        { label: "m² vendibles", value: "1,316,200" },
+        { label: "Macrolotes", value: "4" },
+      ],
+    },
+    {
+      icon: "store" as IconName,
+      category: "Comerciales",
+      primary: { label: "Número de locales", value: "+10,606" },
+      secondary: [
+        { label: "m² vendibles", value: "560,193" },
+        { label: "Macrolotes", value: "6" },
+        { label: "Plazas", value: "19" },
+      ],
+    },
+  ],
+};
 
 /** Comercial vive en su propia sección: es un solo proyecto, no un listado. */
 export const COMMERCIAL = {

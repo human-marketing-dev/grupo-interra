@@ -5,6 +5,7 @@ import { Commercial } from "@/components/landing/Commercial";
 import { Contact } from "@/components/landing/Contact";
 import { CtaBand } from "@/components/landing/CtaBand";
 import { Developments } from "@/components/landing/Developments";
+import { HardNumbers } from "@/components/landing/HardNumbers";
 import { Hero } from "@/components/landing/Hero";
 import { FOOTER_COLUMNS, FOOTER_DESCRIPTION, NAV_LINKS } from "@/content/site";
 
@@ -17,6 +18,7 @@ export default function LandingPage() {
         <Hero />
         <About />
         <Developments />
+        <HardNumbers />
         <Commercial />
         <CtaBand />
         <Contact />

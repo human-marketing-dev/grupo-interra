@@ -98,7 +98,7 @@ export function PropertyModal({ property, onClose }: PropertyModalProps) {
                       alt={slide.alt}
                       fill
                       sizes="(max-width: 1024px) 100vw, 700px"
-                      priority={slideIndex === 0}
+                      loading={slideIndex === 0 ? "eager" : "lazy"}
                       style={{ objectFit: slide.fit ?? "cover" }}
                     />
                   </div>

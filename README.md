@@ -30,15 +30,16 @@ Si vuelves a sincronizar desde el sistema de diseño, parte de
 | `app/layout.tsx` | Fuentes (Archivo + Barlow vía `next/font`), metadata, `lang="es-MX"` |
 | `app/page.tsx` | Composición de la landing |
 | `components/ds/` | Componentes del sistema: Button, Badge, Tag, Card, IconButton, Input, Select, Checkbox, SectionHeading, StatBlock, FeatureItem, PropertyCard, Navbar, Footer, Icon |
-| `components/landing/` | Secciones: Hero, About, Developments, Commercial, CtaBand, Contact |
+| `components/landing/` | Secciones: Hero, About, Developments, HardNumbers, Commercial, CtaBand, Contact |
 | `content/site.ts` | Todo el copy y los datos de la landing |
 | `public/brand/` | Logotipos recortados (sin el ~92% de lienzo transparente del original) |
-| `public/photos/` | Fotografía (`projects/` = galerías por desarrollo) |
+| `public/photos/` | Fotografía suelta (héroe y "Sobre nosotros") |
+| `public/industrial/<proyecto>/`<br>`public/residencial/<proyecto>/` | Galerías por desarrollo |
 
 ## Estructura de la página
 
-Hero → Sobre nosotros → Desarrollos (tabs Industrial / Residencial) →
-Comercial → CTA naranja → Contacto → Footer.
+Hero → Sobre nosotros → Desarrollos (tabs Residencial / Industrial) →
+Trayectoria → Comercial → CTA naranja → Contacto → Footer.
 
 Comercial tiene sección propia (`#comercial`) porque es un solo proyecto, no un
 listado: ahí viven también las marcas ancla. **`Partners.tsx` (IBP + Partners)
@@ -70,25 +71,44 @@ placeholder de trama con "Fotografía pendiente". Los planos y mapas llevan
 
 ## Pendientes
 
-1. **Fotografía por proyecto**: 4 de los 13 desarrollos tienen galería
-   (IBP Parque 100, Salinas IBP I, Lantana y Santte Residencial). Los otros 9
-   siguen con el placeholder de trama diagonal navy. No lo sustituyas por stock
-   genérico sin aprobación: basta con poner los archivos en
-   `public/photos/projects/` y listarlos en `images`.
-   **Por confirmar:** las seis aéreas de `IBP Parque 100` venían nombradas
-   `IBPSANTA-32..37` y no traen señalética. Santa Catarina tiene tres parques
-   (100, 200 y 400), así que la asignación es provisional — está marcada con un
-   `TODO CONFIRMAR` en `content/site.ts`.
-2. **Logotipos de marcas ancla**: Trooper, Telcel, Sayulita, Dollar General,
+1. **Fotografía por proyecto**: 6 de los 13 desarrollos tienen galería —
+   IBP Parque 100 (9), IBP Parque 200 (4), Salinas IBP I (4), Altares (9),
+   Lantana (7) y Santte Residencial (6). Los otros 7 siguen con el placeholder
+   de trama diagonal navy. No lo sustituyas por stock genérico sin aprobación:
+   basta con poner los archivos en `public/industrial/<proyecto>/` o
+   `public/residencial/<proyecto>/` y listarlos en `images`. **La primera del
+   array es la portada de la tarjeta**; el resto va al carrusel.
+2. **Peso de las imágenes** — resuelto. `public/` pasó de 78 MB a 20 MB. Todas
+   las fotos están normalizadas a **máx. 2000 px de ancho, webp q88** (el héroe
+   es JPEG q88 por la extensión que ya tenía referenciada).
+
+   Al agregar fotos nuevas, pásalas por el mismo filtro:
+
+   ```bash
+   node -e 'const s=require("sharp"),f=require("fs");
+     for (const p of process.argv.slice(1)) s(p).resize({width:2000,withoutEnlargement:true})
+       .webp({quality:88}).toBuffer().then(b=>f.writeFileSync(p,b))' \
+     public/residencial/<proyecto>/*.webp
+   ```
+
+   Nota: `next/image` re-codifica a **q=75** al servir, así que el archivo
+   fuente no es lo que descarga el visitante. Subir la calidad del fuente por
+   encima de ~q88 engorda el repo sin cambiar lo que se ve.
+3. **Logotipos de marcas ancla**: Trooper, Telcel, Sayulita, Dollar General,
    FedEx y Dairy Queen están representadas en texto. Faltan los archivos.
-3. **Tipografía**: Archivo + Barlow son la substitución más cercana en Google
+4. **Tipografía**: Archivo + Barlow son la substitución más cercana en Google
    Fonts al logotipo original. Si el cliente entrega las fuentes reales,
    cámbialas en `app/layout.tsx` por `next/font/local`.
-4. **Iconos**: Lucide (`lucide-react`) es el set substituto. El readme del
+5. **Iconos**: Lucide (`lucide-react`) es el set substituto. El readme del
    sistema define un set de casa cerrado, pero la landing real necesita once
    iconos más (beneficios IBP, Business Plaza); están marcados aparte en
    `components/ds/Icon.tsx`. Si el set se formaliza, hay que reconciliarlos.
-5. **Aviso de privacidad**: el enlace del footer apunta a `#`.
+6. **Aviso de privacidad**: el enlace del footer apunta a `#`.
+7. **Cifras de "Trayectoria"**: `HARD_NUMBERS` en `content/site.ts` está
+   transcrito de una imagen que envió el cliente, no de una fuente de datos.
+   Verifícalo antes de publicar — sobre todo `+10,606 locales` contra
+   `560,193 m² vendibles` (≈53 m² por local). El título de la sección
+   ("Interra en números") es redacción propia: la lámina no traía encabezado.
 
 ## Formulario de contacto
 
