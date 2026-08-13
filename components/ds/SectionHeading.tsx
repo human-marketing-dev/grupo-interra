@@ -1,11 +1,37 @@
 import type { ComponentPropsWithoutRef, ReactNode } from "react";
+import type { SurfaceTone } from "./StatBlock";
 
 export type SectionHeadingProps = ComponentPropsWithoutRef<"div"> & {
   eyebrow?: string;
   title: ReactNode;
   description?: ReactNode;
   align?: "left" | "center";
-  inverse?: boolean;
+  tone?: SurfaceTone;
+};
+
+/** Sobre naranja la regla naranja desaparece: pasa a navy. */
+const RULE: Record<SurfaceTone, string> = {
+  default: "var(--interra-orange)",
+  inverse: "var(--interra-orange)",
+  accent: "var(--interra-navy)",
+};
+
+const EYEBROW: Record<SurfaceTone, string> = {
+  default: "var(--text-secondary)",
+  inverse: "rgb(255 255 255 / 0.72)",
+  accent: "var(--navy-700)",
+};
+
+const TITLE: Record<SurfaceTone, string> = {
+  default: "var(--text-primary)",
+  inverse: "#fff",
+  accent: "var(--interra-navy)",
+};
+
+const BODY: Record<SurfaceTone, string> = {
+  default: "var(--text-secondary)",
+  inverse: "rgb(255 255 255 / 0.76)",
+  accent: "var(--navy-700)",
 };
 
 /** Regla de 28×2px naranja + eyebrow: la firma de sección del sistema. */
@@ -14,7 +40,7 @@ export function SectionHeading({
   title,
   description,
   align = "left",
-  inverse = false,
+  tone = "default",
   className,
   style,
   ...rest
@@ -40,11 +66,11 @@ export function SectionHeading({
             marginBottom: 16,
           }}
         >
-          <span className="ds-rule" />
+          <span className="ds-rule" style={{ background: RULE[tone] }} />
           <span
             className="ds-eyebrow"
             style={{
-              color: inverse ? "rgb(255 255 255 / 0.72)" : "var(--text-secondary)",
+              color: EYEBROW[tone],
             }}
           >
             {eyebrow}
@@ -57,7 +83,7 @@ export function SectionHeading({
           fontSize: "var(--fs-display-md)",
           lineHeight: "var(--lh-snug)",
           letterSpacing: "var(--ls-display)",
-          color: inverse ? "#fff" : "var(--text-primary)",
+          color: TITLE[tone],
           textWrap: "balance",
         }}
       >
@@ -70,7 +96,7 @@ export function SectionHeading({
             marginTop: 16,
             fontSize: "var(--fs-body-lg)",
             lineHeight: "var(--lh-body)",
-            color: inverse ? "rgb(255 255 255 / 0.76)" : "var(--text-secondary)",
+            color: BODY[tone],
             textWrap: "pretty",
           }}
         >

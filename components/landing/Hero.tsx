@@ -241,16 +241,12 @@ export function Hero() {
         </div>
       </div>
 
-      <div
-        style={{
-          position: "relative",
-          borderTop: "1px solid rgb(255 255 255 / 0.18)",
-          background: "rgb(0 24 36 / 0.55)",
-        }}
-      >
+      {/* Tira de cifras sobre naranja: el texto va en navy porque el blanco
+          solo alcanza 2.51:1 sobre #F18A00. */}
+      <div style={{ position: "relative", background: "var(--surface-accent)" }}>
         <div className="ds-container grid grid-cols-2 gap-8 py-10 lg:grid-cols-4">
           {HERO_STATS.map((stat) => (
-            <StatBlock key={stat.label} inverse {...stat} />
+            <StatBlock key={stat.label} tone="accent" {...stat} />
           ))}
         </div>
       </div>

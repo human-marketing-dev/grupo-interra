@@ -25,6 +25,7 @@ export default function LandingPage() {
       </main>
 
       <Footer
+        tone="accent"
         logoSrc="/brand/logo-stacked-white.png"
         description={FOOTER_DESCRIPTION}
         columns={FOOTER_COLUMNS}

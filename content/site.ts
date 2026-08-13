@@ -126,50 +126,37 @@ export const DEVELOPMENT_TABS: DevelopmentTab[] = [
     ],
     projects: [
       {
-        name: "Misión del Parque",
-        location: "Apodaca, N.L.",
-        meta: "Fraccionamiento",
-        price: "A consultar",
-        status: "available",
-        statusLabel: "Activo",
-        category: "Residencial",
-      },
-      {
-        name: "Lantana",
-        location: "Guadalupe, N.L.",
-        meta: "Fraccionamiento",
+        name: "Santte Residencial",
+        location: "Santiago, N.L.",
+        meta: "Etapas I, II y III",
         price: "A consultar",
         status: "available",
         statusLabel: "Activo",
         category: "Residencial",
         images: [
           {
-            src: "/residencial/lantana/lantana-casa-4.webp",
-            alt: "Casa muestra de Lantana",
+            src: "/residencial/santte-residencial/RENDER-CASA-CLUB-SANTTE (4).webp",
+            alt: "Render de la casa club de Santte Residencial",
           },
           {
-            src: "/residencial/lantana/lantana-casa.webp",
-            alt: "Fachada de casa en Lantana",
+            src: "/residencial/santte-residencial/RENDER-CASA-CLUB-SANTTE (1).webp",
+            alt: "Render de la casa club de Santte Residencial desde el acceso",
           },
           {
-            src: "/residencial/lantana/lantana-casa-2.webp",
-            alt: "Casa de Lantana desde el acceso",
+            src: "/residencial/santte-residencial/RENDER-CASA-CLUB-SANTTE (2).webp",
+            alt: "Render de las áreas comunes de la casa club de Santte Residencial",
           },
           {
-            src: "/residencial/lantana/lantana-casa-3.webp",
-            alt: "Interior de casa muestra de Lantana",
+            src: "/residencial/santte-residencial/RENDER-CASA-CLUB-SANTTE (3).webp",
+            alt: "Render del interior de la casa club de Santte Residencial",
           },
           {
-            src: "/residencial/lantana/lantana-residencial.webp",
-            alt: "Conjunto residencial Lantana",
+            src: "/residencial/santte-residencial/RENDER-CASA-CLUB-SANTTE (5).webp",
+            alt: "Render nocturno de la casa club de Santte Residencial",
           },
           {
-            src: "/residencial/lantana/Lantana-0103.webp",
-            alt: "Áreas comunes de Lantana",
-          },
-          {
-            src: "/residencial/lantana/Lantana-0116.webp",
-            alt: "Amenidades de Lantana",
+            src: "/residencial/santte-residencial/SANTTE RESIDENCIAL CASETA DE ACCESOse.webp",
+            alt: "Caseta de acceso de Santte Residencial",
           },
         ],
       },
@@ -225,52 +212,65 @@ export const DEVELOPMENT_TABS: DevelopmentTab[] = [
         location: "Santiago, N.L.",
         meta: "Lotes residenciales",
         price: "A consultar",
-        status: "reserved",
-        statusLabel: "Próximamente",
-        category: "Residencial",
-      },
-      {
-        name: "Santte Residencial",
-        location: "Santiago, N.L.",
-        meta: "Etapas I, II y III",
-        price: "A consultar",
         status: "available",
         statusLabel: "Activo",
         category: "Residencial",
+      },
+      {
+        name: "Lantana",
+        location: "Guadalupe, N.L.",
+        meta: "Fraccionamiento",
+        price: "A consultar",
+        status: "sold",
+        statusLabel: "Agotado",
+        category: "Residencial",
         images: [
           {
-            src: "/residencial/santte-residencial/RENDER-CASA-CLUB-SANTTE (4).webp",
-            alt: "Render de la casa club de Santte Residencial",
+            src: "/residencial/lantana/lantana-casa-4.webp",
+            alt: "Casa muestra de Lantana",
           },
           {
-            src: "/residencial/santte-residencial/RENDER-CASA-CLUB-SANTTE (1).webp",
-            alt: "Render de la casa club de Santte Residencial desde el acceso",
+            src: "/residencial/lantana/lantana-casa.webp",
+            alt: "Fachada de casa en Lantana",
           },
           {
-            src: "/residencial/santte-residencial/RENDER-CASA-CLUB-SANTTE (2).webp",
-            alt: "Render de las áreas comunes de la casa club de Santte Residencial",
+            src: "/residencial/lantana/lantana-casa-2.webp",
+            alt: "Casa de Lantana desde el acceso",
           },
           {
-            src: "/residencial/santte-residencial/RENDER-CASA-CLUB-SANTTE (3).webp",
-            alt: "Render del interior de la casa club de Santte Residencial",
+            src: "/residencial/lantana/lantana-casa-3.webp",
+            alt: "Interior de casa muestra de Lantana",
           },
           {
-            src: "/residencial/santte-residencial/RENDER-CASA-CLUB-SANTTE (5).webp",
-            alt: "Render nocturno de la casa club de Santte Residencial",
+            src: "/residencial/lantana/lantana-residencial.webp",
+            alt: "Conjunto residencial Lantana",
           },
           {
-            src: "/residencial/santte-residencial/SANTTE RESIDENCIAL CASETA DE ACCESOse.webp",
-            alt: "Caseta de acceso de Santte Residencial",
+            src: "/residencial/lantana/Lantana-0103.webp",
+            alt: "Áreas comunes de Lantana",
+          },
+          {
+            src: "/residencial/lantana/Lantana-0116.webp",
+            alt: "Amenidades de Lantana",
           },
         ],
+      },
+      {
+        name: "Misión del Parque",
+        location: "Apodaca, N.L.",
+        meta: "Fraccionamiento",
+        price: "A consultar",
+        status: "sold",
+        statusLabel: "Agotado",
+        category: "Residencial",
       },
       {
         name: "Sierras III",
         location: "Santiago, N.L.",
         meta: "Lotes residenciales",
         price: "A consultar",
-        status: "available",
-        statusLabel: "Activo",
+        status: "reserved",
+        statusLabel: "Próximamente",
         category: "Residencial",
       },
     ],
@@ -282,7 +282,10 @@ export const DEVELOPMENT_TABS: DevelopmentTab[] = [
     body: "Interra Business Park son parques industriales en los principales corredores logísticos de Nuevo León, con infraestructura lista para operar: vialidades para tránsito de tráiler, energía de media tensión, vigilancia 24/7 y Business Center.",
     benefitsTitle: "Beneficios IBP",
     benefits: [
-      { icon: "shield-check", label: "Caseta de acceso con vigilancia 24 horas" },
+      {
+        icon: "shield-check",
+        label: "Caseta de acceso con vigilancia 24 horas",
+      },
       { icon: "building-2", label: "Business Center" },
       { icon: "plug-zap", label: "Servicios públicos" },
       { icon: "trending-up", label: "Alta plusvalía" },
@@ -342,33 +345,6 @@ export const DEVELOPMENT_TABS: DevelopmentTab[] = [
         ],
       },
       {
-        name: "IBP Parque 200",
-        location: "Santa Catarina, N.L.",
-        meta: "Parque industrial",
-        price: "A consultar",
-        status: "available",
-        statusLabel: "Activo",
-        category: "Industrial",
-        images: [
-          {
-            src: "/industrial/ibp200/ibp-200-caseta.webp",
-            alt: "Caseta de acceso de IBP Parque 200",
-          },
-          {
-            src: "/industrial/ibp200/ibp-200-aerea.webp",
-            alt: "Vista aérea de IBP Parque 200",
-          },
-          {
-            src: "/industrial/ibp200/ibp-200-aerea-2.webp",
-            alt: "Vista aérea de IBP Parque 200 desde otro ángulo",
-          },
-          {
-            src: "/industrial/ibp200/ibp-200-aerea-3.webp",
-            alt: "Conjunto de IBP Parque 200 desde el aire",
-          },
-        ],
-      },
-      {
         name: "Salinas IBP I",
         location: "Salinas Victoria, N.L.",
         meta: "213 lotes · 2019",
@@ -408,18 +384,36 @@ export const DEVELOPMENT_TABS: DevelopmentTab[] = [
         category: "Industrial",
       },
       {
-        name: "Parque 400",
+        name: "IBP Parque 200",
         location: "Santa Catarina, N.L.",
         meta: "Parque industrial",
         price: "A consultar",
-        status: "reserved",
-        statusLabel: "Próximamente",
+        status: "sold",
+        statusLabel: "Agotado",
         category: "Industrial",
+        images: [
+          {
+            src: "/industrial/ibp200/ibp-200-caseta.webp",
+            alt: "Caseta de acceso de IBP Parque 200",
+          },
+          {
+            src: "/industrial/ibp200/ibp-200-aerea.webp",
+            alt: "Vista aérea de IBP Parque 200",
+          },
+          {
+            src: "/industrial/ibp200/ibp-200-aerea-2.webp",
+            alt: "Vista aérea de IBP Parque 200 desde otro ángulo",
+          },
+          {
+            src: "/industrial/ibp200/ibp-200-aerea-3.webp",
+            alt: "Conjunto de IBP Parque 200 desde el aire",
+          },
+        ],
       },
       {
-        name: "IBP Mitras",
-        location: "Salinas Victoria, N.L.",
-        meta: "Lotes industriales",
+        name: "Parque 400",
+        location: "Santa Catarina, N.L.",
+        meta: "Parque industrial",
         price: "A consultar",
         status: "reserved",
         statusLabel: "Próximamente",
@@ -551,16 +545,19 @@ export const CONTACT = {
   lead: "Para mayor información déjanos tus datos. Contamos con los mejores asesores para apoyarte en tu proceso de compra.",
 };
 
-export const CONTACT_DETAILS: { icon: IconName; value: string; href: string }[] =
-  [
-    { icon: "phone", value: "81 3558 5187", href: "tel:+528135585187" },
-    {
-      icon: "mail",
-      value: "contacto@grupointerra.com",
-      href: "mailto:contacto@grupointerra.com",
-    },
-    { icon: "globe", value: "grupointerra.mx", href: "https://grupointerra.mx" },
-  ];
+export const CONTACT_DETAILS: {
+  icon: IconName;
+  value: string;
+  href: string;
+}[] = [
+  { icon: "phone", value: "81 3558 5187", href: "tel:+528135585187" },
+  {
+    icon: "mail",
+    value: "contacto@grupointerra.com",
+    href: "mailto:contacto@grupointerra.com",
+  },
+  { icon: "globe", value: "grupointerra.mx", href: "https://grupointerra.mx" },
+];
 
 export const FOOTER_DESCRIPTION =
   "Construcción de parques industriales, desarrollos residenciales y espacios comerciales en Nuevo León.";

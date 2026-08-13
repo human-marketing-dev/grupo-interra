@@ -1090,6 +1090,32 @@ button.ds-property {
 }
 
 /* ==========================================================================
+   Footer — el color de los enlaces vive aquí y no inline para que el hover
+   funcione en los dos tonos (navy y naranja).
+   ========================================================================== */
+
+.ds-footer__link {
+  font-size: 15px;
+}
+
+.ds-footer .ds-footer__link {
+  color: rgb(255 255 255 / 0.78);
+}
+
+.ds-footer .ds-footer__link:hover {
+  color: #fff;
+}
+
+.ds-footer--accent .ds-footer__link {
+  color: var(--interra-navy);
+}
+
+.ds-footer--accent .ds-footer__link:hover {
+  color: var(--navy-900);
+  text-decoration: underline;
+}
+
+/* ==========================================================================
    Navbar — components/navigation/Navbar.jsx
    ========================================================================== */
 

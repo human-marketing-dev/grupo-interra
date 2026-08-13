@@ -4,15 +4,15 @@ import { HARD_NUMBERS } from "@/content/site";
 
 /**
  * Banda de cifras del portafolio histórico, entre Desarrollos y Comercial.
- * Va sobre navy: separa dos secciones claras y repite el patrón de la tira de
- * estadísticas del héroe (regla naranja arriba, cifra en display, label abajo).
+ * Va sobre naranja: el texto y las reglas van en navy porque el blanco solo
+ * alcanza 2.51:1 sobre #F18A00.
  */
 export function HardNumbers() {
   return (
-    <section className="ds-section" style={{ background: "var(--interra-navy)" }}>
+    <section className="ds-section" style={{ background: "var(--surface-accent)" }}>
       <div className="ds-container">
         <SectionHeading
-          inverse
+          tone="accent"
           eyebrow={HARD_NUMBERS.eyebrow}
           title={HARD_NUMBERS.title}
         />
@@ -22,11 +22,11 @@ export function HardNumbers() {
             <div
               key={column.category}
               style={{
-                borderTop: "var(--border-width-strong) solid var(--interra-orange)",
+                borderTop: "var(--border-width-strong) solid var(--interra-navy)",
                 paddingTop: 22,
               }}
             >
-              <Icon name={column.icon} size={38} color="var(--interra-orange)" />
+              <Icon name={column.icon} size={38} color="var(--interra-navy)" />
 
               <div className="mt-4.5">
                 <div
@@ -34,7 +34,7 @@ export function HardNumbers() {
                   style={{
                     fontSize: 11,
                     letterSpacing: "0.16em",
-                    color: "rgb(255 255 255 / 0.52)",
+                    color: "var(--navy-700)",
                   }}
                 >
                   Proyectos
@@ -44,7 +44,7 @@ export function HardNumbers() {
                   style={{
                     fontSize: 11,
                     letterSpacing: "0.16em",
-                    color: "var(--interra-orange)",
+                    color: "var(--interra-navy)",
                     marginTop: 3,
                   }}
                 >
@@ -56,7 +56,7 @@ export function HardNumbers() {
                 <dt
                   style={{
                     fontSize: 13,
-                    color: "rgb(255 255 255 / 0.6)",
+                    color: "var(--navy-700)",
                     marginBottom: 4,
                   }}
                 >
@@ -70,7 +70,7 @@ export function HardNumbers() {
                     fontSize: "clamp(30px, 2.6vw, 40px)",
                     lineHeight: 1,
                     letterSpacing: "-0.02em",
-                    color: "#fff",
+                    color: "var(--interra-navy)",
                   }}
                 >
                   {column.primary.value}
@@ -89,10 +89,10 @@ export function HardNumbers() {
                         justifyContent: "space-between",
                         gap: 12,
                         paddingBlock: 9,
-                        borderTop: "var(--border-width) solid rgb(255 255 255 / 0.14)",
+                        borderTop: "var(--border-width) solid rgb(0 38 57 / 0.22)",
                       }}
                     >
-                      <dt style={{ fontSize: 13, color: "rgb(255 255 255 / 0.6)" }}>
+                      <dt style={{ fontSize: 13, color: "var(--navy-700)" }}>
                         {stat.label}
                       </dt>
                       <dd
@@ -101,7 +101,7 @@ export function HardNumbers() {
                           fontFamily: "var(--font-display)",
                           fontWeight: "var(--fw-semibold)",
                           fontSize: 15,
-                          color: "rgb(255 255 255 / 0.92)",
+                          color: "var(--interra-navy)",
                           whiteSpace: "nowrap",
                         }}
                       >

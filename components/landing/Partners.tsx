@@ -16,7 +16,7 @@ export function Partners() {
       <div className="ds-container grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
         <div>
           <SectionHeading
-            inverse
+            tone="inverse"
             eyebrow={PARTNERS.eyebrow}
             title={PARTNERS.title}
             description={PARTNERS.lead}
