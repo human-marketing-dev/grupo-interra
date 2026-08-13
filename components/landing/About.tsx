@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { Button } from "@/components/ds/Button";
-import { FeatureItem } from "@/components/ds/FeatureItem";
-import { ABOUT, HERO } from "@/content/site";
+import { ABOUT } from "@/content/site";
 
 export function About() {
   return (
@@ -46,16 +45,8 @@ export function About() {
             </p>
           ))}
 
-          <div className="mt-9 flex flex-col gap-[26px]">
-            {ABOUT.features.map((feature) => (
-              <FeatureItem key={feature.title} {...feature} />
-            ))}
-          </div>
-
           <div className="mt-9">
-            <Button href="#desarrollos" variant="outline">
-              Ver desarrollos
-            </Button>
+            <Button href="#desarrollos">Ver desarrollos</Button>
           </div>
         </div>
 
@@ -64,8 +55,8 @@ export function About() {
           style={{ borderRadius: "var(--radius-lg)" }}
         >
           <Image
-            src={HERO.photo}
-            alt="Caseta de acceso e instalaciones de Grupo Interra"
+            src={ABOUT.photo}
+            alt={ABOUT.photoAlt}
             fill
             sizes="(max-width: 1024px) 100vw, 560px"
             style={{ objectFit: "cover" }}

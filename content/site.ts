@@ -16,13 +16,59 @@ export const NAV_LINKS = [
   { label: "Contacto", href: "#contacto" },
 ];
 
-export const HERO = {
-  eyebrow: "Grupo Interra · Nuevo León · Desde 2008",
-  title: "Parques industriales y comunidades que impulsan al estado",
-  lead: "Fortalecemos el desarrollo económico de Nuevo León construyendo parques industriales, desarrollos residenciales y espacios comerciales con infraestructura, servicios y amenidades de primer nivel.",
-  photo: "/photos/hero-caseta.jpg",
-  photoAlt: "Acceso a parque industrial de Grupo Interra en Nuevo León",
+export type HeroSlide = {
+  id: string;
+  /** Etiqueta corta para el control del carrusel. */
+  name: string;
+  eyebrow: string;
+  title: string;
+  lead: string;
+  photo: string;
+  photoAlt: string;
+  ctaLabel: string;
+  ctaHref: string;
 };
+
+/**
+ * Los tres slides del héroe. El copy de Santte e IBP está construido solo con
+ * datos que ya viven en este archivo (etapas, ubicación, beneficios de cada
+ * vertical); no se inventó ninguna cifra ni amenidad.
+ */
+export const HERO_SLIDES: HeroSlide[] = [
+  {
+    id: "grupo",
+    name: "Grupo Interra",
+    eyebrow: "Grupo Interra · Nuevo León · Desde 2008",
+    title: "Parques industriales y comunidades que impulsan al estado",
+    lead: "Fortalecemos el desarrollo económico de Nuevo León construyendo parques industriales, desarrollos residenciales y espacios comerciales con infraestructura, servicios y amenidades de primer nivel.",
+    photo: "/photos/hero-caseta.jpg",
+    photoAlt: "Acceso a parque industrial de Grupo Interra en Nuevo León",
+    ctaLabel: "Conoce nuestros desarrollos",
+    ctaHref: "#desarrollos",
+  },
+  {
+    id: "santte",
+    name: "Santte Residencial",
+    eyebrow: "Santte Residencial · Santiago, N.L.",
+    title: "Lotes residenciales al pie de la sierra",
+    lead: "Tres etapas en Santiago, Nuevo León, con casa club, acceso controlado y urbanización terminada. Escrituración lista desde la entrega.",
+    photo: "/residencial/santte-residencial/RENDER-CASA-CLUB-SANTTE (4).webp",
+    photoAlt: "Casa club de Santte Residencial al atardecer",
+    ctaLabel: "Conoce Santte Residencial",
+    ctaHref: "#desarrollos",
+  },
+  {
+    id: "ibp",
+    name: "Interra Business Park",
+    eyebrow: "Interra Business Park · Nuevo León",
+    title: "Parques industriales listos para operar",
+    lead: "Vialidades para tránsito de tráiler, energía de media tensión, vigilancia 24/7 y Business Center, en los principales corredores logísticos del estado.",
+    photo: "/industrial/ibp100/ibp-100-aerea.webp",
+    photoAlt: "Vista aérea de un parque industrial de Interra Business Park",
+    ctaLabel: "Conoce IBP",
+    ctaHref: "#desarrollos",
+  },
+];
 
 export const HERO_STATS = [
   { value: "2008", label: "Año de fundación" },
@@ -38,20 +84,8 @@ export const ABOUT = {
     "En Grupo Interra fortalecemos el desarrollo económico del estado a través de la construcción de parques industriales. Nuestro equipo de trabajo, con gran experiencia, desarrolla proyectos de máxima calidad conforme a los más altos estándares; por eso nuestros proyectos cuentan con el respaldo de empresas nacionales e internacionales.",
     "Cada lote se adapta a la visión de los empresarios más exigentes. La infraestructura, los servicios y las amenidades son nuestras principales fortalezas al construir tanto desarrollos residenciales como parques industriales innovadores y funcionales.",
   ],
-  features: [
-    {
-      icon: "factory" as IconName,
-      title: "Vivienda como origen",
-      description:
-        "En 2008 iniciamos con fraccionamientos como Mirador del Parque, San Marcos del Parque y Portal del Parque. Esas comunidades son la base de lo que somos hoy.",
-    },
-    {
-      icon: "handshake" as IconName,
-      title: "IBP + Partners",
-      description:
-        "Aporta tu terreno para la creación de un desarrollo industrial y recibe como pago lotes ya urbanizados, listos para construir naves en renta o venta.",
-    },
-  ],
+  photo: "/photos/hero-caseta.jpg",
+  photoAlt: "Caseta de acceso e instalaciones de Grupo Interra",
   photoCaption: {
     eyebrow: "Presencia Interra",
     text: "Business Center · Salinas Victoria, N.L.",
@@ -81,8 +115,8 @@ export const DEVELOPMENT_TABS: DevelopmentTab[] = [
   {
     id: "residencial",
     label: "Residencial",
-    heading: "Vivienda y comunidades",
-    body: "En 2008 Grupo Interra inició con proyectos de construcción de fraccionamientos de interés social como Mirador del Parque, San Marcos del Parque I, III y IV, Portal del Parque, Rincón del Parque, San Miguel del Parque y Arboledas del Parque. Gracias al desarrollo de estas comunidades se obtuvo la base para continuar lo que somos hoy.",
+    heading: "Construimos patrimonio",
+    body: "Desde 2008 desarrollamos comunidades residenciales en Nuevo León con urbanización terminada, accesos controlados y escrituración lista desde la entrega. Un mismo estándar de ejecución aplicado en más de siete fraccionamientos.",
     benefitsTitle: "Lo que incluye",
     benefits: [
       { icon: "trees", label: "Áreas verdes y amenidades" },
@@ -244,14 +278,8 @@ export const DEVELOPMENT_TABS: DevelopmentTab[] = [
   {
     id: "industrial",
     label: "Industrial",
-    heading: "Parques industriales IBP",
-    body: "Parque Salinas IBP I es un parque industrial exclusivo en Salinas Victoria, N.L., con 213 lotes, caseta y vigilancia, Business Center equipado con oficinas, área de comedor común y servicios públicos. Fácil acceso a puentes fronterizos, vías de transportación y zona habitacional.",
-    stats: [
-      { value: "213", label: "lotes industriales" },
-      { value: "24 m y 21 m", label: "vialidades principales" },
-      { value: "2019", label: "año del parque" },
-      { value: "Business Center", label: "oficinas y comedor" },
-    ],
+    heading: "Desarrollo industrial",
+    body: "Interra Business Park son parques industriales en los principales corredores logísticos de Nuevo León, con infraestructura lista para operar: vialidades para tránsito de tráiler, energía de media tensión, vigilancia 24/7 y Business Center.",
     benefitsTitle: "Beneficios IBP",
     benefits: [
       { icon: "shield-check", label: "Caseta de acceso con vigilancia 24 horas" },

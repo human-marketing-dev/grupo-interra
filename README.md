@@ -46,6 +46,22 @@ listado: ahí viven también las marcas ancla. **`Partners.tsx` (IBP + Partners)
 existe pero no está montada** — salió en este rediseño; se conserva porque es
 contenido real del cliente.
 
+## Héroe en carrusel
+
+Tres slides en `HERO_SLIDES` (Grupo Interra, Santte, IBP), cada uno con su foto,
+su copy y su CTA naranja. La barra de estadísticas de abajo **no** rota: son
+cifras de la empresa, no del desarrollo en turno.
+
+**Sin autoplay, a propósito.** El sistema de diseño lo prohíbe de forma
+explícita ("sin autoplay de carruseles"). Se avanza con los puntos, las flechas
+o ← → cuando el carrusel tiene el foco. La consecuencia a asumir es que quien
+no interactúe solo verá el primer slide.
+
+Los tres bloques de copy se renderizan siempre y los inactivos llevan `hidden`:
+así el texto de Santte e IBP queda en el HTML para los buscadores, sin entrar al
+tab order. Solo el primer slide usa `<h1>`; los otros dos usan `<p>` con la
+clase `.ds-hero__title` para no tener tres `<h1>` en la página.
+
 ## Modal de desarrollo
 
 Cada tarjeta de `Developments` y `Commercial` abre un `PropertyModal` con

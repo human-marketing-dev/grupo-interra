@@ -750,6 +750,65 @@ button.ds-property {
   opacity: 0.9;
 }
 
+/* ==========================================================================
+   Héroe en carrusel
+   ========================================================================== */
+
+.ds-hero__photo {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity var(--dur-slow) var(--ease-standard);
+}
+
+.ds-hero__photo[data-active="true"] {
+  opacity: 1;
+}
+
+/* Reserva de alto para que el bloque de texto no salte entre slides, que
+   tienen títulos de distinto largo. */
+.ds-hero__copy {
+  min-height: 372px;
+}
+
+@media (min-width: 768px) {
+  .ds-hero__copy {
+    min-height: 424px;
+  }
+}
+
+/* Solo el primer slide lleva <h1> — la página debe tener uno. Los otros dos
+   usan <p> con el mismo tratamiento visual. */
+.ds-hero__title {
+  margin-top: 24px;
+  font-family: var(--font-display);
+  font-size: var(--fs-display-xl);
+  line-height: 1.03;
+  letter-spacing: var(--ls-display);
+  color: #fff;
+  max-width: 940px;
+  text-wrap: balance;
+  font-weight: 800;
+}
+
+.ds-hero__dot {
+  width: 30px;
+  height: 3px;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  background: rgb(255 255 255 / 0.32);
+  transition: background var(--dur-base) var(--ease-standard);
+}
+
+.ds-hero__dot:hover {
+  background: rgb(255 255 255 / 0.6);
+}
+
+.ds-hero__dot[aria-current="true"] {
+  background: var(--interra-orange);
+}
+
 /* Scrim lateral del héroe: en pantallas anchas protege solo la columna de
    texto y deja ver la fotografía a la derecha; en angostas cubre todo. */
 .ds-hero-scrim {
