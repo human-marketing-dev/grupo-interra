@@ -62,7 +62,7 @@ export function PropertyCard({
             src={cover.src}
             alt=""
             fill
-            sizes="(max-width: 768px) 100vw, (max-width: 1100px) 50vw, 460px"
+            sizes="(max-width: 768px) 110vw, (max-width: 1100px) 55vw, 520px"
             style={{ objectFit: "cover" }}
           />
         ) : null}

@@ -2,7 +2,7 @@ import type { ComponentPropsWithoutRef } from "react";
 
 /**
  * `accent` = sobre el naranja de marca. Ahí el blanco solo alcanza 2.51:1, así
- * que texto y regla van en navy (6.27:1) en vez de invertirse.
+ * que texto y regla van en negro (8.38:1) en vez de invertirse.
  */
 export type SurfaceTone = "default" | "inverse" | "accent";
 
@@ -15,19 +15,19 @@ export type StatBlockProps = ComponentPropsWithoutRef<"div"> & {
 const RULE: Record<SurfaceTone, string> = {
   default: "var(--interra-orange)",
   inverse: "var(--interra-orange)",
-  accent: "var(--interra-navy)",
+  accent: "var(--interra-black)",
 };
 
 const VALUE: Record<SurfaceTone, string> = {
   default: "var(--text-primary)",
   inverse: "#fff",
-  accent: "var(--interra-navy)",
+  accent: "var(--interra-black)",
 };
 
 const LABEL: Record<SurfaceTone, string> = {
   default: "var(--text-secondary)",
   inverse: "rgb(255 255 255 / 0.7)",
-  accent: "var(--navy-700)",
+  accent: "var(--interra-black)",
 };
 
 /** Cifras siempre con unidad y contexto: "+1,200 ha", no "1200". */

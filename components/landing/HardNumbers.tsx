@@ -4,8 +4,8 @@ import { HARD_NUMBERS } from "@/content/site";
 
 /**
  * Banda de cifras del portafolio histórico, entre Desarrollos y Comercial.
- * Va sobre naranja: el texto y las reglas van en navy porque el blanco solo
- * alcanza 2.51:1 sobre #F18A00.
+ * Va sobre naranja: el texto, los iconos y las reglas van en negro porque el
+ * blanco solo alcanza 2.51:1 sobre #F18A00.
  */
 export function HardNumbers() {
   return (
@@ -22,11 +22,11 @@ export function HardNumbers() {
             <div
               key={column.category}
               style={{
-                borderTop: "var(--border-width-strong) solid var(--interra-navy)",
+                borderTop: "var(--border-width-strong) solid var(--interra-black)",
                 paddingTop: 22,
               }}
             >
-              <Icon name={column.icon} size={38} color="var(--interra-navy)" />
+              <Icon name={column.icon} size={38} color="var(--interra-black)" />
 
               <div className="mt-4.5">
                 <div
@@ -34,7 +34,7 @@ export function HardNumbers() {
                   style={{
                     fontSize: 11,
                     letterSpacing: "0.16em",
-                    color: "var(--navy-700)",
+                    color: "var(--interra-black)",
                   }}
                 >
                   Proyectos
@@ -44,7 +44,7 @@ export function HardNumbers() {
                   style={{
                     fontSize: 11,
                     letterSpacing: "0.16em",
-                    color: "var(--interra-navy)",
+                    color: "var(--interra-black)",
                     marginTop: 3,
                   }}
                 >
@@ -56,7 +56,7 @@ export function HardNumbers() {
                 <dt
                   style={{
                     fontSize: 13,
-                    color: "var(--navy-700)",
+                    color: "var(--interra-black)",
                     marginBottom: 4,
                   }}
                 >
@@ -70,7 +70,7 @@ export function HardNumbers() {
                     fontSize: "clamp(30px, 2.6vw, 40px)",
                     lineHeight: 1,
                     letterSpacing: "-0.02em",
-                    color: "var(--interra-navy)",
+                    color: "var(--interra-black)",
                   }}
                 >
                   {column.primary.value}
@@ -89,10 +89,10 @@ export function HardNumbers() {
                         justifyContent: "space-between",
                         gap: 12,
                         paddingBlock: 9,
-                        borderTop: "var(--border-width) solid rgb(0 38 57 / 0.22)",
+                        borderTop: "var(--border-width) solid rgb(0 0 0 / 0.24)",
                       }}
                     >
-                      <dt style={{ fontSize: 13, color: "var(--navy-700)" }}>
+                      <dt style={{ fontSize: 13, color: "var(--interra-black)" }}>
                         {stat.label}
                       </dt>
                       <dd
@@ -101,7 +101,7 @@ export function HardNumbers() {
                           fontFamily: "var(--font-display)",
                           fontWeight: "var(--fw-semibold)",
                           fontSize: 15,
-                          color: "var(--interra-navy)",
+                          color: "var(--interra-black)",
                           whiteSpace: "nowrap",
                         }}
                       >

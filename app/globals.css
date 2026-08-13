@@ -271,6 +271,12 @@
   }
 }
 
+/* El header es fijo (76px) y los enlaces del menú apuntan a secciones: sin
+   esto el borde superior de la sección aterriza debajo de la barra. */
+main > section[id] {
+  scroll-margin-top: 76px;
+}
+
 /* Placeholder de trama diagonal navy — sustituye fotografía mientras no exista.
    Documentado en el sistema: no reemplazar por stock genérico sin aprobación. */
 .ds-hatch {

@@ -58,7 +58,11 @@ export function About() {
             src={ABOUT.photo}
             alt={ABOUT.photoAlt}
             fill
-            sizes="(max-width: 1024px) 100vw, 560px"
+            // OJO: `sizes` describe el ancho al que se RENDERIZA la imagen, no
+            // el de la caja. Con `cover` sobre una caja 4:5 y una foto 3:2, la
+            // imagen se ajusta al alto y se recorta a los lados: ocupa ~1250px
+            // aunque la columna mida 665. Declarar 665 la deja borrosa igual.
+            sizes="(max-width: 1024px) 100vw, 1250px"
             style={{ objectFit: "cover" }}
           />
           <div

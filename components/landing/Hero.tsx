@@ -244,7 +244,7 @@ export function Hero() {
       {/* Tira de cifras sobre naranja: el texto va en navy porque el blanco
           solo alcanza 2.51:1 sobre #F18A00. */}
       <div style={{ position: "relative", background: "var(--surface-accent)" }}>
-        <div className="ds-container grid grid-cols-2 gap-8 py-10 lg:grid-cols-4">
+        <div className="ds-container grid grid-cols-2 gap-x-8 gap-y-10 py-10 md:grid-cols-3 xl:grid-cols-5">
           {HERO_STATS.map((stat) => (
             <StatBlock key={stat.label} tone="accent" {...stat} />
           ))}

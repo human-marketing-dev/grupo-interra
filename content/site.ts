@@ -13,7 +13,7 @@ import type { Property } from "@/components/ds/PropertyCard";
 export const NAV_LINKS = [
   { label: "Sobre nosotros", href: "#nosotros" },
   { label: "Desarrollos", href: "#desarrollos" },
-  { label: "Contacto", href: "#contacto" },
+  { label: "Comercial", href: "#comercial" },
 ];
 
 export type HeroSlide = {
@@ -39,7 +39,7 @@ export const HERO_SLIDES: HeroSlide[] = [
     id: "grupo",
     name: "Grupo Interra",
     eyebrow: "Grupo Interra · Nuevo León · Desde 2008",
-    title: "Parques industriales y comunidades que impulsan al estado",
+    title: "Desarrollamos certeza",
     lead: "Fortalecemos el desarrollo económico de Nuevo León construyendo parques industriales, desarrollos residenciales y espacios comerciales con infraestructura, servicios y amenidades de primer nivel.",
     photo: "/photos/hero-caseta.jpg",
     photoAlt: "Acceso a parque industrial de Grupo Interra en Nuevo León",
@@ -72,9 +72,10 @@ export const HERO_SLIDES: HeroSlide[] = [
 
 export const HERO_STATS = [
   { value: "2008", label: "Año de fundación" },
-  { value: "6", label: "Parques industriales" },
-  { value: "6", label: "Desarrollos residenciales" },
-  { value: "213", label: "Lotes en Salinas IBP I" },
+  { value: "18", label: "Años de trayectoria" },
+  { value: "2.2M", label: "m² desarrollados" },
+  { value: "1.2M", label: "m² industriales" },
+  { value: "9,700", label: "Lotes desarrollados" },
 ];
 
 export const ABOUT = {
@@ -379,8 +380,8 @@ export const DEVELOPMENT_TABS: DevelopmentTab[] = [
         location: "Salinas Victoria, N.L.",
         meta: "Lotes industriales",
         price: "A consultar",
-        status: "reserved",
-        statusLabel: "En venta",
+        status: "available",
+        statusLabel: "Activo",
         category: "Industrial",
       },
       {

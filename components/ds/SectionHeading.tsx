@@ -9,29 +9,29 @@ export type SectionHeadingProps = ComponentPropsWithoutRef<"div"> & {
   tone?: SurfaceTone;
 };
 
-/** Sobre naranja la regla naranja desaparece: pasa a navy. */
+/** Sobre naranja la regla naranja desaparece: pasa a negro. */
 const RULE: Record<SurfaceTone, string> = {
   default: "var(--interra-orange)",
   inverse: "var(--interra-orange)",
-  accent: "var(--interra-navy)",
+  accent: "var(--interra-black)",
 };
 
 const EYEBROW: Record<SurfaceTone, string> = {
   default: "var(--text-secondary)",
   inverse: "rgb(255 255 255 / 0.72)",
-  accent: "var(--navy-700)",
+  accent: "var(--interra-black)",
 };
 
 const TITLE: Record<SurfaceTone, string> = {
   default: "var(--text-primary)",
   inverse: "#fff",
-  accent: "var(--interra-navy)",
+  accent: "var(--interra-black)",
 };
 
 const BODY: Record<SurfaceTone, string> = {
   default: "var(--text-secondary)",
   inverse: "rgb(255 255 255 / 0.76)",
-  accent: "var(--navy-700)",
+  accent: "var(--interra-black)",
 };
 
 /** Regla de 28×2px naranja + eyebrow: la firma de sección del sistema. */
