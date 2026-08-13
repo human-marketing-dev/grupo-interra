@@ -1,21 +1,62 @@
 "use client";
 
 import Image from "next/image";
-import { useState, type KeyboardEvent } from "react";
+import {
+  useEffect,
+  useState,
+  useSyncExternalStore,
+  type KeyboardEvent,
+} from "react";
 import { Button } from "@/components/ds/Button";
 import { Icon } from "@/components/ds/Icon";
 import { IconButton } from "@/components/ds/IconButton";
 import { StatBlock } from "@/components/ds/StatBlock";
 import { HERO_SLIDES, HERO_STATS } from "@/content/site";
 
+/** Tiempo por slide. Suficiente para leer el párrafo antes de que avance. */
+const AUTOPLAY_MS = 7000;
+
+const REDUCED_MOTION = "(prefers-reduced-motion: reduce)";
+
+function useReducedMotion() {
+  return useSyncExternalStore(
+    (onChange) => {
+      const query = window.matchMedia(REDUCED_MOTION);
+      query.addEventListener("change", onChange);
+      return () => query.removeEventListener("change", onChange);
+    },
+    () => window.matchMedia(REDUCED_MOTION).matches,
+    () => false,
+  );
+}
+
 /**
- * Héroe en carrusel. Sin autoplay: el sistema de diseño lo prohíbe
- * explícitamente ("sin autoplay de carruseles"). Se avanza con los puntos, las
- * flechas o ← → cuando el carrusel tiene el foco.
+ * Héroe en carrusel con autoplay.
+ *
+ * OJO: el sistema de diseño pide "sin autoplay de carruseles"; se activó por
+ * decisión explícita del cliente para que Santte e IBP no queden invisibles.
+ * Para cumplir con WCAG 2.2.2 el avance automático se puede pausar, y además
+ * se detiene solo al pasar el mouse, al enfocar el carrusel o si el sistema
+ * pide movimiento reducido.
  */
 export function Hero() {
   const [index, setIndex] = useState(0);
+  const [playing, setPlaying] = useState(true);
+  const [held, setHeld] = useState(false);
   const total = HERO_SLIDES.length;
+
+  // El sistema puede vetar el avance automático aunque el usuario no lo pause.
+  const reduced = useReducedMotion();
+  const running = playing && !reduced;
+
+  useEffect(() => {
+    if (!running || held) return;
+    const id = window.setInterval(
+      () => setIndex((current) => (current + 1) % total),
+      AUTOPLAY_MS,
+    );
+    return () => window.clearInterval(id);
+  }, [running, held, total]);
 
   function go(step: number) {
     setIndex((current) => (current + step + total) % total);
@@ -36,7 +77,12 @@ export function Hero() {
     <section
       role="region"
       aria-label="Destacados"
+      aria-roledescription="carrusel"
       onKeyDown={onKeyDown}
+      onMouseEnter={() => setHeld(true)}
+      onMouseLeave={() => setHeld(false)}
+      onFocusCapture={() => setHeld(true)}
+      onBlurCapture={() => setHeld(false)}
       style={{
         position: "relative",
         background: "var(--interra-black)",
@@ -81,13 +127,18 @@ export function Hero() {
       <div className="ds-hero-scrim" />
 
       <div className="ds-container relative pt-[150px] pb-[80px] md:pt-[190px] md:pb-[120px]">
-        {/* Los tres bloques se renderizan siempre y los inactivos van con
-            `hidden`: así el copy de Santte e IBP queda en el HTML para los
-            buscadores, y `hidden` lo saca del tab order y del árbol de
-            accesibilidad — mismo patrón que los paneles de Desarrollos. */}
+        {/* Los tres bloques se apilan en la misma celda de grid, así el alto
+            del héroe es siempre el del slide más alto y no salta al cambiar.
+            `visibility` (no `hidden`) porque display:none no aporta alto; aun
+            así saca el contenido del tab order y del árbol de accesibilidad,
+            y lo deja en el HTML para los buscadores. */}
         <div className="ds-hero__copy" aria-live="polite">
           {HERO_SLIDES.map((item, itemIndex) => (
-            <div key={item.id} hidden={itemIndex !== index}>
+            <div
+              key={item.id}
+              className="ds-hero__slide"
+              data-active={itemIndex === index}
+            >
               <div className="flex items-center gap-3">
                 <span className="ds-rule" />
                 <span
@@ -161,6 +212,15 @@ export function Hero() {
           </span>
 
           <div className="ml-auto flex gap-2.5">
+            <IconButton
+              variant="inverse"
+              size={42}
+              label={running ? "Pausar el carrusel" : "Reanudar el carrusel"}
+              aria-pressed={!running}
+              onClick={() => setPlaying((value) => !value)}
+            >
+              <Icon name={running ? "pause" : "play"} size={17} />
+            </IconButton>
             <IconButton
               variant="inverse"
               size={42}

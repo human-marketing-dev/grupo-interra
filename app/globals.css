@@ -765,16 +765,25 @@ button.ds-property {
   opacity: 1;
 }
 
-/* Reserva de alto para que el bloque de texto no salte entre slides, que
-   tienen títulos de distinto largo. */
+/* Los slides se apilan en una sola celda: el alto del héroe queda fijado por
+   el más alto (el primero, cuyo título ocupa tres líneas) y no salta al
+   cambiar de slide. */
 .ds-hero__copy {
-  min-height: 372px;
+  display: grid;
 }
 
-@media (min-width: 768px) {
-  .ds-hero__copy {
-    min-height: 424px;
-  }
+.ds-hero__slide {
+  grid-area: 1 / 1;
+  visibility: hidden;
+  opacity: 0;
+  transition:
+    opacity var(--dur-base) var(--ease-standard),
+    visibility var(--dur-base) var(--ease-standard);
+}
+
+.ds-hero__slide[data-active="true"] {
+  visibility: visible;
+  opacity: 1;
 }
 
 /* Solo el primer slide lleva <h1> — la página debe tener uno. Los otros dos
