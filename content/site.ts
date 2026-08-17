@@ -16,6 +16,19 @@ export const NAV_LINKS = [
   { label: "Comercial", href: "#comercial" },
 ];
 
+/**
+ * Portada de marca: foto de fondo, velo naranja y el logotipo encima.
+ * Sustituir `photo` por un <video> cuando exista el archivo — la estructura ya
+ * está lista para ello en components/landing/BrandHero.tsx.
+ */
+export const BRAND_HERO = {
+  /* Foto diurna a propósito: el velo naranja sobre una nocturna vira a café. */
+  photo: "/industrial/ibp100/ibp-100-aerea-2.webp",
+  /** Hace de titular de la página: es el contenido del <h1>. */
+  logoAlt:
+    "Grupo Interra — parques industriales y desarrollos residenciales en Nuevo León",
+};
+
 export type HeroSlide = {
   id: string;
   /** Etiqueta corta para el control del carrusel. */
@@ -30,22 +43,13 @@ export type HeroSlide = {
 };
 
 /**
- * Los tres slides del héroe. El copy de Santte e IBP está construido solo con
+ * Slides del héroe. El corporativo salió: lo cubre la portada de marca de
+ * arriba, y repetirlo aquí daba dos pantallas seguidas diciendo lo mismo.
+ * El copy de Santte e IBP está construido solo con
  * datos que ya viven en este archivo (etapas, ubicación, beneficios de cada
  * vertical); no se inventó ninguna cifra ni amenidad.
  */
 export const HERO_SLIDES: HeroSlide[] = [
-  {
-    id: "grupo",
-    name: "Grupo Interra",
-    eyebrow: "Grupo Interra · Nuevo León · Desde 2008",
-    title: "Desarrollamos certeza",
-    lead: "Fortalecemos el desarrollo económico de Nuevo León construyendo parques industriales, desarrollos residenciales y espacios comerciales con infraestructura, servicios y amenidades de primer nivel.",
-    photo: "/photos/hero-caseta.jpg",
-    photoAlt: "Acceso a parque industrial de Grupo Interra en Nuevo León",
-    ctaLabel: "Conoce nuestros desarrollos",
-    ctaHref: "#desarrollos",
-  },
   {
     id: "santte",
     name: "Santte Residencial",

@@ -78,16 +78,13 @@ export function Hero() {
       role="region"
       aria-label="Destacados"
       aria-roledescription="carrusel"
+      className="ds-hero-slider"
       onKeyDown={onKeyDown}
       onMouseEnter={() => setHeld(true)}
       onMouseLeave={() => setHeld(false)}
       onFocusCapture={() => setHeld(true)}
       onBlurCapture={() => setHeld(false)}
-      style={{
-        position: "relative",
-        background: "var(--interra-black)",
-        overflow: "hidden",
-      }}
+      style={{ background: "var(--interra-black)", overflow: "hidden" }}
     >
       {/* Todas las fotos montadas y cruzadas por opacidad: cambiar el `src`
           provoca una descarga tardía y un parpadeo al saltar de slide. */}
@@ -103,8 +100,11 @@ export function Hero() {
             alt={itemIndex === index ? item.photoAlt : ""}
             fill
             sizes="100vw"
-            preload={itemIndex === 0}
-            loading={itemIndex === 0 ? "eager" : "lazy"}
+            /* Lazy incluso el primero: el slider empieza a 100vh, debajo de
+               la portada. En eager Next lo precarga y le compite el LCP a la
+               portada. El margen del lazy nativo lo trae igual antes de que la
+               cortina lo descubra. */
+            loading="lazy"
             style={{
               objectFit: "cover",
               filter: "brightness(1.25) saturate(1.05)",
@@ -149,11 +149,9 @@ export function Hero() {
                 </span>
               </div>
 
-              {itemIndex === 0 ? (
-                <h1 className="ds-hero__title">{item.title}</h1>
-              ) : (
-                <p className="ds-hero__title">{item.title}</p>
-              )}
+              {/* <p>, no <h1>: el encabezado de la página es el logotipo de
+                  la portada de arriba. */}
+              <p className="ds-hero__title">{item.title}</p>
 
               <p
                 style={{

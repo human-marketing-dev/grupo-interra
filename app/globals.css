@@ -757,6 +757,31 @@ button.ds-property {
 }
 
 /* ==========================================================================
+   Portada de marca + cortina
+   ========================================================================== */
+
+/* La portada queda clavada y el slider sube por encima tapándola. Para que el
+   sticky siga pinneado mientras el slider pasa, ambos tienen que vivir dentro
+   de la misma escena: es la escena la que le da recorrido al sticky. */
+.ds-cover-scene {
+  position: relative;
+}
+
+.ds-brand-hero {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  height: 100vh;
+  height: 100svh; /* evita el salto por la barra de direcciones en móvil */
+}
+
+/* Encima de la portada, y opaco, para que la tape por completo. */
+.ds-hero-slider {
+  position: relative;
+  z-index: 2;
+}
+
+/* ==========================================================================
    Héroe en carrusel
    ========================================================================== */
 
@@ -792,8 +817,8 @@ button.ds-property {
   opacity: 1;
 }
 
-/* Solo el primer slide lleva <h1> — la página debe tener uno. Los otros dos
-   usan <p> con el mismo tratamiento visual. */
+/* Los slides no llevan <h1>: el encabezado de la página es el logotipo de la
+   portada de marca. Todos usan <p> con este tratamiento visual. */
 .ds-hero__title {
   margin-top: 24px;
   font-family: var(--font-display);

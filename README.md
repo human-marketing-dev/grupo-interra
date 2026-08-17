@@ -46,21 +46,44 @@ listado: ahí viven también las marcas ancla. **`Partners.tsx` (IBP + Partners)
 existe pero no está montada** — salió en este rediseño; se conserva porque es
 contenido real del cliente.
 
+## Portada + cortina
+
+`BrandHero` es una portada de marca a pantalla completa: foto, velo naranja al
+86% y el logotipo encima. Va **sticky** dentro de `.ds-cover-scene`, y el
+carrusel (z-index mayor y opaco) sube y la tapa como una cortina. Los dos tienen
+que vivir dentro de la misma escena: es ella la que le da recorrido al sticky.
+
+El **`<h1>` de la página es ese logotipo** — su `alt` hace de titular. Por eso
+los slides del carrusel usan `<p>` y no `<h1>`. Si algún día la portada deja de
+tener el logo, hay que devolverle el h1 al carrusel o la página se queda sin uno.
+
+Dos detalles que no son evidentes:
+
+- **La foto tiene que ser diurna.** El velo naranja sobre una toma nocturna vira
+  a café. Por eso usa la aérea de IBP 100 y no la caseta.
+- **La franja del header lleva un degradado navy.** El texto blanco de la barra
+  sobre naranja da 2.51:1; con el degradado sube a ~5.9:1.
+
+Falta el video: sustituir el `<Image>` de `BrandHero.tsx` por un `<video muted
+loop playsinline>` con `poster`. Conviene no cargarlo en móvil ni con
+`prefers-reduced-motion`, y precargar el poster en vez del video.
+
 ## Héroe en carrusel
 
-Tres slides en `HERO_SLIDES` (Grupo Interra, Santte, IBP), cada uno con su foto,
-su copy y su CTA naranja. La barra de estadísticas de abajo **no** rota: son
+Dos slides en `HERO_SLIDES` (Santte e IBP), cada uno con su foto, su copy y su
+CTA naranja. El corporativo salió: lo carga la portada de arriba y repetirlo
+daba dos pantallas seguidas diciendo lo mismo. La barra de estadísticas de abajo **no** rota: son
 cifras de la empresa, no del desarrollo en turno.
 
-**Sin autoplay, a propósito.** El sistema de diseño lo prohíbe de forma
-explícita ("sin autoplay de carruseles"). Se avanza con los puntos, las flechas
-o ← → cuando el carrusel tiene el foco. La consecuencia a asumir es que quien
-no interactúe solo verá el primer slide.
+**Con autoplay cada 7 s**, activado por decisión explícita del cliente: el
+sistema de diseño pide "sin autoplay de carruseles". Para cumplir WCAG 2.2.2 se
+puede pausar, y además se detiene solo al pasar el mouse, al enfocar el carrusel
+o si el sistema pide movimiento reducido.
 
-Los tres bloques de copy se renderizan siempre y los inactivos llevan `hidden`:
-así el texto de Santte e IBP queda en el HTML para los buscadores, sin entrar al
-tab order. Solo el primer slide usa `<h1>`; los otros dos usan `<p>` con la
-clase `.ds-hero__title` para no tener tres `<h1>` en la página.
+Los bloques de copy se renderizan todos y los inactivos se ocultan con
+`visibility` (no `display:none`, que no aportaría alto): así el texto queda en
+el HTML para los buscadores sin entrar al tab order, y los slides se apilan en
+una celda de grid para que el alto no salte al cambiar.
 
 ## Modal de desarrollo
 

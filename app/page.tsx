@@ -1,6 +1,7 @@
 import { Footer } from "@/components/ds/Footer";
 import { Navbar } from "@/components/ds/Navbar";
 import { About } from "@/components/landing/About";
+import { BrandHero } from "@/components/landing/BrandHero";
 import { Commercial } from "@/components/landing/Commercial";
 import { Contact } from "@/components/landing/Contact";
 import { CtaBand } from "@/components/landing/CtaBand";
@@ -15,7 +16,10 @@ export default function LandingPage() {
       <Navbar links={NAV_LINKS} />
 
       <main className="flex-1">
-        <Hero />
+        <div className="ds-cover-scene">
+          <BrandHero />
+          <Hero />
+        </div>
         <About />
         <Developments />
         <HardNumbers />
