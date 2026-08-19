@@ -928,6 +928,16 @@ button.ds-property {
   line-height: 1.35;
 }
 
+/* Los seis logos tienen proporciones muy distintas (de 1.51 a 4.58). Topar
+   alto y ancho a la vez evita que los cuadrados aplasten a los alargados. */
+.ds-brand__logo {
+  max-height: 38px;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
 .ds-brand {
   display: flex;
   align-items: center;

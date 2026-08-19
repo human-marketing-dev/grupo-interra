@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 import { Icon } from "@/components/ds/Icon";
 import { PropertyCard, type Property } from "@/components/ds/PropertyCard";
@@ -91,15 +92,18 @@ export function Commercial() {
           >
             {COMMERCIAL.brandsTitle}
           </div>
-          <div className="mt-6 grid grid-cols-3 gap-3.5 md:grid-cols-6">
+          <div className="mt-6 grid grid-cols-2 gap-3.5 sm:grid-cols-3 md:grid-cols-6">
             {TENANT_BRANDS.map((brand) => (
-              <div key={brand} className="ds-brand">
-                {brand}
+              <div key={brand.name} className="ds-brand">
+                <Image
+                  src={brand.logo}
+                  alt={brand.name}
+                  width={brand.width}
+                  height={brand.height}
+                  className="ds-brand__logo"
+                />
               </div>
             ))}
-          </div>
-          <div style={{ marginTop: 14, fontSize: 13, color: "var(--text-muted)" }}>
-            {COMMERCIAL.brandsNote}
           </div>
         </div>
       </div>

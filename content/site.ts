@@ -510,18 +510,25 @@ export const COMMERCIAL = {
       "Locales comerciales tipo workshop con amplio espacio para showroom, oficinas, producción y almacenaje. Cuentan con agua, drenaje, telefonía, internet y energía eléctrica.",
   } as Property,
   brandsTitle: "Marcas que ya operan con nosotros",
-  brandsNote:
-    "Marcas representadas en texto — pendiente recibir los archivos de logotipo de cada una.",
 };
 
-/** Representadas en texto: falta recibir los archivos de logotipo. */
-export const TENANT_BRANDS = [
-  "Trooper",
-  "Telcel",
-  "Sayulita",
-  "Dollar General",
-  "FedEx",
-  "Dairy Queen",
+/**
+ * Marcas ancla del Business Plaza. Los archivos vienen ya recoloreados al
+ * naranja de Interra —no son los colores originales de cada marca—, así que
+ * van sobre chip blanco para que el naranja lea.
+ */
+export const TENANT_BRANDS: {
+  name: string;
+  logo: string;
+  width: number;
+  height: number;
+}[] = [
+  { name: "Truper", logo: "/logos/truper-logo.webp", width: 420, height: 240 },
+  { name: "Telcel", logo: "/logos/telcel-logo.webp", width: 412, height: 90 },
+  { name: "Sayu Sayulita", logo: "/logos/sayu-sayulita-logo.webp", width: 402, height: 148 },
+  { name: "Dollar General", logo: "/logos/dollar-general-logo.webp", width: 412, height: 192 },
+  { name: "FedEx", logo: "/logos/fedex-logo.webp", width: 414, height: 130 },
+  { name: "Dairy Queen", logo: "/logos/dairy-queen-logo.webp", width: 404, height: 268 },
 ];
 
 export const PARTNERS = {
